@@ -1,18 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Navbar from "./components/Navigation/Navbar";
+
 import Header from "./sections/Header";
 import Main from "./sections/Main";
-
+import Shop from "./pages/Shop";
+import Home from "./pages/Home";
 function App() {
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/" element={<Layout />}></Route>
+          <Route path="/" element={<Home />}></Route>
         </Routes>
-        <Header />
-        <Main />
+
+        <Routes>
+          <Route path="shop" element={<Shop />}></Route>
+        </Routes>
       </Layout>
     </BrowserRouter>
   );

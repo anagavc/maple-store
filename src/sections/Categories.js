@@ -1,27 +1,31 @@
 import React from "react";
-import PrimaryButton from "../components/Buttons/PrimaryButton";
+import PrimaryButton from "../components/UI/Buttons/PrimaryButton";
 import rings from "../images/earrings.jpg";
 import bracelet from "../images/bracelet.jpg";
 import watch from "../images/watch.jpg";
+import necklace from "../images/necklace.jpg";
+import bag from "../images/bag.jpg";
+import shoe from "../images/shoe.jpg";
+import { HeadingThree } from "../components/UI/FontStyles/FontStyles";
 const Categories = () => {
   const collectionsOne = [
     {
       name: "rings",
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
-      image: { rings },
+      image: rings,
     },
     {
       name: "bracelets",
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
-      image: { rings },
+      image: bracelet,
     },
     {
       name: "necklaces",
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
-      image: { rings },
+      image: necklace,
     },
   ];
   const collectionsTwo = [
@@ -29,122 +33,75 @@ const Categories = () => {
       name: "watches",
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
-      image: { rings },
+      image: watch,
     },
     {
       name: "bags",
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
-      image: { rings },
+      image: bag,
     },
     {
       name: "shoes",
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
-      image: { rings },
+      image: shoe,
     },
   ];
   return (
     <div className="bg-pry-50 px-24 py-32 flex flex-col space-y-12 justify-center items-center w-full ">
-      <div className="border-b border-b-pry-100 w-full flex justify-center">
-        <h3 className="font-heading text-3xl   text-pry-100 mb-4">
-          Categories for you
-        </h3>
-      </div>
+      <HeadingThree color="pry-100" title="Categories For You" />
+
       <div className="flex flex-col space-y-12">
         <div className="flex justify-between space-x-12 w-full">
-          <div className="flex flex-col w-2/5 space-y-4 bg-pry-100 px-8 py-8">
-            <div className=" border-b-4 border-b-pry-100">
-              <img src={earrings} alt="Earrings" />
-            </div>
-            <div className="flex-col justify-center items-center space-y-8">
-              <p className="font-heading uppercase text-gold text-xl text-center tracking-widest">
-                rings
-              </p>
-              <p className="font-heading text-gold text-base text-center">
-                The collection of bespoke rings fabricated with the rarest
-                metals to exude elegance on the bearer.
-              </p>
-              <PrimaryButton title="Browse collection" />
-            </div>
-          </div>
-          <div className="flex flex-col w-2/5 space-y-4 bg-pry-100 px-8 py-8">
-            <div className=" border-b-4 border-b-pry-100">
-              <img src={bracelet} alt="Earrings" />
-            </div>
-            <div className="flex-col justify-center items-center space-y-8">
-              <p className="font-heading uppercase text-gold text-xl text-center tracking-widest">
-                Bracelets
-              </p>
-              <p className="font-heading text-gold text-base text-center">
-                The collection of bespoke rings fabricated with the rarest
-                metals to exude elegance on the bearer.
-              </p>
-              <PrimaryButton title="Browse collection" />
-            </div>
-          </div>
-          <div className="flex flex-col w-2/5 space-y-4 bg-pry-100 px-8 py-8 ">
-            <div className=" border-b-4 border-b-pry-100 ">
-              <img src={watch} alt="Earrings" />
-            </div>
-            <div className="flex-col justify-center items-center space-y-8">
-              <p className="font-heading uppercase text-gold text-xl text-center tracking-widest">
-                Wristwatches
-              </p>
-              <p className="font-heading text-gold text-base text-center">
-                The collection of bespoke rings fabricated with the rarest
-                metals to exude elegance on the bearer.
-              </p>
-              <PrimaryButton title="Browse collection" />
-            </div>
-          </div>
+          {collectionsOne.map((collection, index) => {
+            return (
+              <div
+                className="flex flex-col w-2/5 space-y-4 bg-pry-100 px-8 py-8"
+                key={index}
+              >
+                <div className=" border-b-4 border-b-pry-100">
+                  <img
+                    src={collection.image}
+                    alt="Earrings"
+                    className="h-64 w-full"
+                  />
+                </div>
+                <div className="flex-col justify-center items-center space-y-8">
+                  <p className="font-heading uppercase text-gold text-xl text-center tracking-widest">
+                    {collection.name}
+                  </p>
+                  <p className="font-heading text-gold text-base text-center">
+                    {collection.description}
+                  </p>
+                  <PrimaryButton title="Browse collection" />
+                </div>
+              </div>
+            );
+          })}
         </div>
         <div className="flex justify-between space-x-12 w-full">
-          <div className="flex flex-col w-2/5 space-y-4 bg-pry-100 px-8 py-8">
-            <div className=" border-b-4 border-b-pry-100">
-              <img src={earrings} alt="Earrings" />
-            </div>
-            <div className="flex-col justify-center items-center space-y-8">
-              <p className="font-heading uppercase text-gold text-xl text-center tracking-widest">
-                rings
-              </p>
-              <p className="font-heading text-gold text-base text-center">
-                The collection of bespoke rings fabricated with the rarest
-                metals to exude elegance on the bearer.
-              </p>
-              <PrimaryButton title="Browse collection" />
-            </div>
-          </div>
-          <div className="flex flex-col w-2/5 space-y-4 bg-pry-100 px-8 py-8">
-            <div className=" border-b-4 border-b-pry-100">
-              <img src={bracelet} alt="Earrings" />
-            </div>
-            <div className="flex-col justify-center items-center space-y-8">
-              <p className="font-heading uppercase text-gold text-xl text-center tracking-widest">
-                Bracelets
-              </p>
-              <p className="font-heading text-gold text-base text-center">
-                The collection of bespoke rings fabricated with the rarest
-                metals to exude elegance on the bearer.
-              </p>
-              <PrimaryButton title="Browse collection" />
-            </div>
-          </div>
-          <div className="flex flex-col w-2/5 space-y-4 bg-pry-100 px-8 py-8 ">
-            <div className=" border-b-4 border-b-pry-100 ">
-              <img src={watch} alt="Earrings" />
-            </div>
-            <div className="flex-col justify-center items-center space-y-8">
-              <p className="font-heading uppercase text-gold text-xl text-center tracking-widest">
-                Wristwatches
-              </p>
-              <p className="font-heading text-gold text-base text-center">
-                The collection of bespoke rings fabricated with the rarest
-                metals to exude elegance on the bearer.
-              </p>
-              <PrimaryButton title="Browse collection" />
-            </div>
-          </div>
+          {collectionsTwo.map((collection, index) => {
+            return (
+              <div
+                className="flex flex-col w-2/5 space-y-4 bg-pry-100 px-8 py-8"
+                key={index}
+              >
+                <div className=" border-b-4 border-b-pry-100">
+                  <img src={collection.image} alt="Earrings" />
+                </div>
+                <div className="flex-col justify-center items-center space-y-8">
+                  <p className="font-heading uppercase text-gold text-xl text-center tracking-widest">
+                    {collection.name}
+                  </p>
+                  <p className="font-heading text-gold text-base text-center">
+                    {collection.description}
+                  </p>
+                  <PrimaryButton title="Browse collection" />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

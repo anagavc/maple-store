@@ -16,7 +16,7 @@ const Navbar = () => {
     },
     {
       name: "Shop",
-      path: "/shop",
+      path: "shop",
     },
   ];
   const accountActions = [
@@ -30,20 +30,16 @@ const Navbar = () => {
     },
   ];
   return (
-    <nav className="py-4 sticky px-24 bg-pry-100 flex justify-between border-b border-gold">
-      <p className="font-heading text-lg text-gold uppercase" key={1}>
-        Maple Stores
-      </p>
+    <nav className="py-4 fixed px-24 bg-pry-100 flex justify-between border-b border-gold w-full z-40">
+      <p className="font-heading text-lg text-gold uppercase">Maple Stores</p>
       <div className="flex justify-between space-x-8">
-        {navItems.map((item) => {
-          return <NavItem name={item.name} path={item.path} id={item.name} />;
+        {navItems.map((item, index) => {
+          return <NavItem name={item.name} path={item.path} id={index} />;
         })}
       </div>
       <div className="flex justify-between space-x-8">
-        {accountActions.map((action) => {
-          return (
-            <NavItem name={action.name} path={action.path} id={action.name} />
-          );
+        {accountActions.map((action, index) => {
+          return <NavItem name={action.name} path={action.path} id={index} />;
         })}
       </div>
     </nav>

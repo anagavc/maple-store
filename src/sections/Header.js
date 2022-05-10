@@ -2,7 +2,7 @@ import React from "react";
 import hero from "../images/heroimg.jpg";
 const Header = () => {
   return (
-    <div className="bg-pry-100 py-24 px-24 h-3/5 flex justify-between">
+    <div className="bg-pry-100 py-36 px-24 h-3/5 flex justify-between">
       <div className="flex flex-col justify-between h-5/6 space-y-24">
         <h1 className="font-heading text-6xl text-gold uppercase">
           Luxury Made For You
