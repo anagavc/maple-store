@@ -16,10 +16,22 @@ export const HeadingFour = ({ title, color, textColor }) => {
 export const HeadingTwo = ({ title, color, size }) => {
   return <h2 className={`font-heading  ${color} ${size}`}>{title}</h2>;
 };
-export const HeadingThree = ({ title, color, size }) => {
+export const HeadingThree = ({ title, color }) => {
   return (
     <div className={`border-b border-b-${color} w-full flex justify-center`}>
       <h3 className={`font-heading text-3xl text-${color} mb-4`}>{title}</h3>
     </div>
   );
+};
+
+export const Paragraph = ({ children }) => {
+  return (
+    <p className="tracking-widest font-body  text-pry-100 text-base">
+      {children}
+    </p>
+  );
+};
+
+export const ParagraphLarge = ({ children }) => {
+  return <p className="text-gold font-body text-lg font-bold">{children}</p>;
 };

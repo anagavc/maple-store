@@ -4,7 +4,6 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { Link, NavLink } from "react-router-dom";
 import EmailIcon from "@mui/icons-material/Email";
-import { HeadingThree } from "../components/UI/FontStyles/FontStyles";
 
 const Footer = () => {
   const footerLinks = [
@@ -86,8 +85,8 @@ const Footer = () => {
     },
   ];
   return (
-    <div className="bg-pry-100 pt-12 pb-6  flex flex-col space-y-8 justify-between w-full ">
-      <div className="flex justify-between border-y border-y-gold py-4 px-24">
+    <div className="bg-pry-100 py-6  flex flex-col space-y-8 justify-between w-full ">
+      <div className="flex justify-between border-b border-b-gold py-2 px-24">
         <p className="font-heading text-2xl tracking-widest text-gold uppercase">
           Maple Stores
         </p>

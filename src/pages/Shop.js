@@ -1,6 +1,9 @@
 import React from "react";
 import { HeadingTwo } from "../components/UI/FontStyles/FontStyles";
-
+import PrimaryButton from "../components/UI/Buttons/PrimaryButton";
+import InfoIcon from "@mui/icons-material/Info";
+import watch from "../images/watch2.png";
+import { NavLink } from "react-router-dom";
 const Shop = () => {
   const filterItems = [
     {
@@ -52,6 +55,44 @@ const Shop = () => {
       ],
     },
   ];
+  const products = [
+    {
+      category: "Wristwatch",
+      name: "Fossil Monochromatic Watch",
+      price: "$87.91",
+      image: watch,
+    },
+    {
+      category: "Wristwatch",
+      name: "Fossil Monochromatic Watch",
+      price: "$87.91",
+      image: watch,
+    },
+    {
+      category: "Wristwatch",
+      name: "Fossil Monochromatic Watch",
+      price: "$87.91",
+      image: watch,
+    },
+    {
+      category: "Wristwatch",
+      name: "Fossil Monochromatic Watch",
+      price: "$87.91",
+      image: watch,
+    },
+    {
+      category: "Wristwatch",
+      name: "Fossil Monochromatic Watch",
+      price: "$87.91",
+      image: watch,
+    },
+    {
+      category: "Wristwatch",
+      name: "Fossil Monochromatic Watch",
+      price: "$87.91",
+      image: watch,
+    },
+  ];
   return (
     <div className="bg-pry-50 px-24 py-24 flex flex-col justify-between  w-full space-y-4">
       <p className="text-pry-100  font-body text-base font-medium ">
@@ -63,7 +104,7 @@ const Shop = () => {
         size="text-3xl tracking-loose"
       />
       <div className="flex justify-between">
-        <div className="flex flex-col justify-between space-y-6 border-r border-r-pry-100 px-6">
+        <div className="flex flex-col  space-y-6 border-r border-r-pry-100 ">
           {filterItems.map((item, index) => (
             <div
               className="flex flex-col justify-between space-y-2"
@@ -79,13 +120,47 @@ const Shop = () => {
                 >
                   <input
                     type="checkbox"
-                    className="outline-pry-100 accent-pry-100"
+                    className="outline-pry-100 accent-pry-100 bg-pry-50"
                   />
                   {option.name}
                 </label>
               ))}
             </div>
           ))}
+        </div>
+        <div className="flex  justify-evenly w-full flex-wrap px-8 ">
+          {products.map((product, index) => {
+            return (
+              <div
+                className="flex flex-col justify-between space-y-6 bg-pry-100 w-80 mb-16 px-6 py-6"
+                key={index}
+              >
+                <div className="bg-gold">
+                  <img src={product.image} className="W-full" alt="product" />
+                </div>
+                <div className="flex justify-between">
+                  <p className="tracking-widest font-body  text-gold text-base">
+                    {product.category}
+                  </p>
+                  <NavLink
+                    to="/products/:id"
+                    className="text-gold hover:text-pry-50 transition duration-300"
+                  >
+                    <InfoIcon />
+                  </NavLink>
+                </div>
+
+                <p className="font-heading  text-gold text-lg">
+                  {product.name}
+                </p>
+                <p className="tracking-widest font-body  text-gold text-base font-bold">
+                  {product.price}
+                </p>
+
+                <PrimaryButton title="Add to cart +" />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

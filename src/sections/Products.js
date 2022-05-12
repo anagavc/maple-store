@@ -69,11 +69,15 @@ const Products = () => {
         {products.map((product, index) => {
           return (
             <div
-              className="flex flex-col justify-between space-y-8 w-96 mb-24 "
+              className="flex flex-col justify-between space-y-8 w-96 mb-24 border border-gold p-4 "
               key={index}
             >
-              <div className="bg-gold px-12 py-8">
-                <img src={product.image} className="W-full" alt="product" />
+              <div className="bg-gold p-4">
+                <img
+                  src={product.image}
+                  className="W-full bg-pry-100"
+                  alt="product"
+                />
               </div>
               <p className="tracking-widest font-body  text-gold text-base">
                 {product.category}

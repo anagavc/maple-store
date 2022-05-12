@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import NavItem from "./NavItem";
 const Navbar = () => {
   const navItems = [
@@ -31,7 +32,9 @@ const Navbar = () => {
   ];
   return (
     <nav className="py-4 fixed px-24 bg-pry-100 flex justify-between border-b border-gold w-full z-40">
-      <p className="font-heading text-lg text-gold uppercase">Maple Stores</p>
+      <NavLink to="/" className="font-heading text-lg text-gold uppercase">
+        Maple Stores
+      </NavLink>
       <div className="flex justify-between space-x-8">
         {navItems.map((item, index) => {
           return <NavItem name={item.name} path={item.path} id={index} />;
