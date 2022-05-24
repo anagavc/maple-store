@@ -21,7 +21,7 @@ const Payment = () => {
     },
   ];
   return (
-    <div className="bg-pry-50 px-24 py-24 flex flex-col justify-between  w-full space-y-4">
+    <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-between  w-full space-y-4">
       <p className="text-pry-100  font-body text-base font-medium ">
         Home &gt; Make payment
       </p>
@@ -30,7 +30,11 @@ const Payment = () => {
         color="text-pry-100"
         size="text-3xl tracking-loose"
       />
-      <Form formTitle="Card information" details={paymentDetails} />
+      <Form
+        formTitle="Card information"
+        details={paymentDetails}
+        submitTitle="Make payment"
+      />
     </div>
   );
 };

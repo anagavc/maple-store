@@ -94,7 +94,7 @@ const Shop = () => {
     },
   ];
   return (
-    <div className="bg-pry-50 px-24 py-24 flex flex-col justify-between  w-full space-y-4">
+    <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-between  w-full space-y-4">
       <p className="text-pry-100  font-body text-base font-medium ">
         Home &gt; Products
       </p>
@@ -103,8 +103,27 @@ const Shop = () => {
         color="text-pry-100"
         size="text-3xl tracking-loose"
       />
-      <div className="flex justify-between">
-        <div className="flex flex-col  space-y-6 border-r border-r-pry-100 ">
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-between">
+        <div className="flex flex-col md:hidden">
+          <div className="flex flex-col">
+            <label
+              className="font-body text-lg text-pry-100"
+              htmlFor="category"
+            >
+              Choose category
+            </label>
+            <select
+              className="border border-pry-100 text-pry-100 px-2 py-2 bg-pry-50 transition duration-300 ease-in"
+              name="category"
+              id="category"
+            >
+              <option>Wristwatch</option>
+              <option>Bags</option>
+              <option>Shoes</option>
+            </select>
+          </div>
+        </div>
+        <div className="md:flex hidden flex-col px-8 space-y-6 border-r border-r-pry-100 ">
           {filterItems.map((item, index) => (
             <div
               className="flex flex-col justify-between space-y-2"
@@ -128,11 +147,11 @@ const Shop = () => {
             </div>
           ))}
         </div>
-        <div className="flex  justify-evenly w-full flex-wrap px-8 ">
+        <div className="flex w-full md:w-4/5 justify-between  flex-wrap  ">
           {products.map((product, index) => {
             return (
               <div
-                className="flex flex-col justify-between space-y-6 bg-pry-100 w-80 mb-16 px-6 py-6"
+                className="flex flex-col justify-between space-y-6 bg-pry-100 w-full md:w-80 mb-16 px-6 py-6"
                 key={index}
               >
                 <div className="bg-gold">
@@ -157,7 +176,7 @@ const Shop = () => {
                   {product.price}
                 </p>
 
-                <PrimaryButton title="Add to cart +" />
+                <PrimaryButton title="Add to cart " />
               </div>
             );
           })}

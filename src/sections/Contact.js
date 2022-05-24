@@ -45,14 +45,14 @@ const Contact = () => {
     },
   ];
   return (
-    <div className="bg-pry-100 px-24 py-24 flex flex-col space-y-8 justify-center items-center w-full ">
+    <div className="bg-pry-100 px-8 md:px-24 py-24 flex flex-col space-y-8 justify-center items-center w-full ">
       <HeadingThree title="Contact Us" color="gold" />
       <h4 className="font-body text-lg text-gold  text-justify tracking-widest">
         Do you want to make an enquiry? We will be delighted to hear it. Drop us
         a line below, we'd love to talk to you.
       </h4>
-      <div className="flex justify-between flex-1">
-        <div className="flex flex-wrap justify-between h-full gap-6">
+      <div className="flex flex-col-reverse md:flex-row justify-between md:flex-1 ">
+        <div className="flex flex-wrap justify-between h-full gap-6 mt-8 md:mt-0">
           {contactDetails.map((detail, index) => {
             return (
               <div className="flex flex-col space-y-4 w-72" key={index}>
@@ -68,7 +68,7 @@ const Contact = () => {
           })}
         </div>
 
-        <div className="flex flex-col space-y-12 w-full">
+        <div className="flex flex-col space-y-12 w-full ">
           {feedbackInputs.map((input, index) => (
             <label
               className="relative text-gold focus-within:text-gold block"

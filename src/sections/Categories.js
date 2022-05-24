@@ -49,15 +49,15 @@ const Categories = () => {
     },
   ];
   return (
-    <div className="bg-pry-50 px-24 py-32 flex flex-col space-y-12 justify-center items-center w-full ">
+    <div className="bg-pry-50 px-8 md:px-24 py-32 flex flex-col flex-wrap space-y-12 justify-center items-center w-full ">
       <HeadingThree color="pry-100" title="Categories For You" />
 
-      <div className="flex flex-col space-y-12">
-        <div className="flex justify-between space-x-12 w-full">
+      <div className="flex flex-col space-y-0 md:space-y-12">
+        <div className="flex justify-between flex-col md:flex-row md:space-x-12 w-full">
           {collectionsOne.map((collection, index) => {
             return (
               <div
-                className="flex flex-col w-2/5 space-y-4 bg-pry-100 px-8 py-8"
+                className="flex flex-col md:w-2/5 w-full space-y-2 mb-6 bg-pry-100 px-4 md:px-8 py-8"
                 key={index}
               >
                 <div className=" border-b-4 border-b-pry-100">
@@ -80,11 +80,11 @@ const Categories = () => {
             );
           })}
         </div>
-        <div className="flex justify-between space-x-12 w-full">
+        <div className="flex justify-between flex-col md:flex-row md:space-x-12 w-full">
           {collectionsTwo.map((collection, index) => {
             return (
               <div
-                className="flex flex-col w-2/5 space-y-4 bg-pry-100 px-8 py-8"
+                className="flex flex-col w-full md:w-2/5 space-y-2 mb-6 bg-pry-100 px-4 md:px-8 py-8"
                 key={index}
               >
                 <div className=" border-b-4 border-b-pry-100">

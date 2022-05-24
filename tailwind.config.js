@@ -15,7 +15,11 @@ module.exports = {
       heading: ["Playfair Display"],
       body: ["Lato"],
     },
-    extend: {},
+    extend: {
+      transitionProperty: {
+        left: "left",
+      },
+    },
   },
   plugins: [],
 };

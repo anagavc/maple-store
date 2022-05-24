@@ -5,7 +5,7 @@ import image1 from "../images/productImage.jpg";
 import image2 from "../images/earrings.jpg";
 const ProductDetail = () => {
   return (
-    <div className="bg-pry-50 px-24 py-24 flex flex-col justify-between  w-full space-y-4">
+    <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-between  w-full space-y-4">
       <p className="text-pry-100  font-body text-base font-medium ">
         Home &gt; Products &gt; Expensive Ring
       </p>
@@ -14,12 +14,12 @@ const ProductDetail = () => {
         color="text-pry-100"
         size="text-3xl tracking-loose"
       />
-      <div className="flex justify-between space-x-12">
+      <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 justify-between md:space-x-12">
         <div className="flex flex-col justify-between flex-1 h-3/5">
           <div className="  w-full ">
             <img src={image2} alt="Fossil watch" />
           </div>
-          <div className="flex justify-between mt-8 space-x-8">
+          <div className="flex justify-between  mt-4 space-x-4 md:mt-8 md:space-x-8">
             <div className="bg-pry-100 w-3/5 ">
               <img src={image1} alt="Fossil watch" />
             </div>
@@ -49,7 +49,7 @@ const ProductDetail = () => {
             <Paragraph>Price: $500</Paragraph>
             <Paragraph>Color: Green</Paragraph>
           </div>
-          <PrimaryButton title="Add to cart +" />
+          <PrimaryButton title="Add to cart " />
         </div>
       </div>
     </div>

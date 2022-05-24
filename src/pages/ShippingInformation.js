@@ -48,7 +48,7 @@ const ShippingInformation = () => {
     },
   ];
   return (
-    <div className="bg-pry-50 px-24 py-24 flex flex-col justify-between  w-full space-y-4">
+    <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-between  w-full space-y-4">
       <p className="text-pry-100  font-body text-base font-medium ">
         Home &gt; Shipping Information
       </p>
@@ -57,15 +57,15 @@ const ShippingInformation = () => {
         color="text-pry-100"
         size="text-3xl tracking-loose"
       />
-      <form className="flex w-full justify-around  bg-pry-50 drop-shadow-md">
-        <div className="flex p-12  flex-col w-full justify-around h-full">
+      <form className="flex w-full flex-col md:flex-row justify-around  bg-pry-50 md:border md:border-pry-100 drop-shadow-md">
+        <div className="flex  px-2 py-4 md:p-12  flex-col w-full justify-around h-full">
           <p className="font-heading text-lg text-pry-100 ml-16">
             Contact information
           </p>
 
-          <div className="flex justify-around p-4  gap-6 flex-wrap">
+          <div className="flex flex-col md:flex-row justify-around p-4  gap-6 flex-wrap">
             {contactInformation.map((information, index) => (
-              <div className="flex flex-col w-2/5" key={index}>
+              <div className="flex flex-col w-full md:w-2/5" key={index}>
                 <label
                   htmlFor={information.id}
                   className="text-md text-pry-100 font-normal"
@@ -76,7 +76,7 @@ const ShippingInformation = () => {
                   placeholder={`Enter your ${information.name}`}
                   name={information.name}
                   id={information.id}
-                  className="px-8 py-2 w-full bg-pry-50 border border-pry-100"
+                  className="px-4 md:px-8 py-2 w-full bg-pry-50 border border-pry-100"
                 />
               </div>
             ))}
@@ -85,9 +85,9 @@ const ShippingInformation = () => {
             Shipping information
           </p>
 
-          <div className="flex justify-around p-4 gap-6 flex-wrap">
+          <div className="flex flex-col md:flex-row justify-around p-4  gap-6 flex-wrap">
             {shippingInformation.map((information, index) => (
-              <div className="flex flex-col w-2/5" key={index}>
+              <div className="flex flex-col w-full md:w-2/5" key={index}>
                 <label
                   htmlFor={information.id}
                   className="text-md text-pry-100 font-normal"
@@ -98,12 +98,12 @@ const ShippingInformation = () => {
                   placeholder={`Enter your ${information.name}`}
                   name={information.name}
                   id={information.id}
-                  className="px-8 py-2 w-full bg-pry-50 border border-pry-100"
+                  className="px-4 md:px-8 py-2 w-full bg-pry-50 border border-pry-100"
                 />
               </div>
             ))}
           </div>
-          <div className="my-6">
+          <div className="my-6 px-2 md:px-0">
             <SubmitButton title="Make payment" />
           </div>
         </div>

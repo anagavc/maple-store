@@ -51,25 +51,25 @@ const Products = () => {
     },
   ];
   return (
-    <div className="bg-pry-100 px-24 py-32 flex flex-col space-y-8 justify-center items-center w-full ">
+    <div className="bg-pry-100 px-8 md:px-24 py-32 flex flex-col space-y-8 justify-center items-center w-full ">
       <HeadingThree title="Our Products" color="gold" />
-      <div className="flex justify-between w-full">
+      <div className="flex justify-center w-full md:items-center flex-wrap md:flex-nowrap">
         {items.map((item, index) => {
           return (
             <button
               key={index}
-              className="bg-pry-100 tracking-widest  flex justify-center w-full text-gold   font-body  py-4 px-8  hover:bg-gold hover:text-pry-100 font-medium transition duration-300"
+              className="bg-pry-100 tracking-widest w-2/5 m-2 md:m-0 border-gold border md:border-0 flex justify-center md:w-full text-gold   font-body p-2  md:py-4 md:px-8  hover:bg-gold hover:text-pry-100 font-medium transition duration-300"
             >
               {item.name}
             </button>
           );
         })}
       </div>
-      <div className="flex  justify-between flex-wrap ">
+      <div className="flex  justify-between flex-col md:flex-row w-full md:flex-wrap">
         {products.map((product, index) => {
           return (
             <div
-              className="flex flex-col justify-between space-y-8 w-96 mb-24 border border-gold p-4 "
+              className="flex flex-col justify-between space-y-8  w-full md:w-96  mb-24 border border-gold p-4 "
               key={index}
             >
               <div className="bg-gold p-4">
@@ -91,7 +91,7 @@ const Products = () => {
                 </p>
               </div>
 
-              <PrimaryButton title="Add to cart +" />
+              <PrimaryButton title="Add to cart" />
             </div>
           );
         })}
