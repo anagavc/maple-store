@@ -1,16 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
-import { publicRequest } from "../api/requests";
+import Notifications from "../components/UI/Notifications/Notifications";
 import { useState, useEffect } from "react";
 import PrimaryButton from "../components/UI/Buttons/PrimaryButton";
 import { HeadingThree } from "../components/UI/FontStyles/FontStyles";
-import watch from "../images/watch2.png";
+
 import { addProduct } from "../redux/cartSlice";
-import { getProducts } from "../api/apiCalls";
+import { getProducts, updateWishlistProducts } from "../api/apiCalls";
+import { Favorite, FavoriteBorderOutlined } from "@mui/icons-material";
 const Products = () => {
   const dispatch = useDispatch();
-
+  const user = useSelector((state) => state.user.currentUser);
+  const currentWishlist = useSelector((state) => state.wishlist.wishlist);
+  const wishlistID = useSelector((state) => state.wishlist.wishlistID);
   const products = useSelector((state) => state.product.products);
-
+  const [productId, setProductId] = useState(null);
   useEffect(() => {
     getProducts(dispatch);
   }, [dispatch]);
@@ -25,9 +28,22 @@ const Products = () => {
     { name: "Shoes" },
   ];
   const [quantity, setQuantity] = useState(1);
+  const [add, setAdd] = useState(false);
+  const [remove, setRemove] = useState(false);
+  useEffect(() => {
+    const handleAddToWishlist = () => {
+      const updatedWishlist = [...currentWishlist, productId];
+      const newWishlist = { wishlist: updatedWishlist };
+      setAdd(true);
+      updateWishlistProducts(wishlistID, newWishlist, dispatch);
+    };
+    productId && handleAddToWishlist();
+  }, [productId]);
 
   return (
     <div className="bg-pry-100 px-8 md:px-24 py-32 flex flex-col space-y-8 justify-center items-center w-full ">
+      <Notifications open={add} setOpen={setAdd} type="add" />
+      <Notifications open={remove} setOpen={setRemove} type="remove" />
       <HeadingThree title="Our Products" color="gold" />
       <div className="flex justify-center w-full md:items-center flex-wrap md:flex-nowrap">
         {items.map((item, index) => {
@@ -49,15 +65,46 @@ const Products = () => {
               key={index}
             >
               <div className="bg-gold p-4  w-full flex justify-center items-center">
-                <img
-                  src={product.img}
-                  className="W-full  bg-pry-100"
-                  alt="product"
-                />
+                <div className="bg-pry-100 w-full flex items-center justify-center">
+                  <img src={product.img} className="W-52 h-52" alt="product" />
+                </div>
               </div>
-              <p className="tracking-widest font-body  text-gold text-base">
-                {product.category}
-              </p>
+              <div className="flex justify-between">
+                <p className="tracking-widest font-body  text-gold text-base">
+                  {product.category}
+                </p>
+                {user && (
+                  <span className="text-gold cursor-pointer transition duration-500">
+                    {currentWishlist.includes(product._id) ? (
+                      <Favorite
+                        onClick={() => {
+                          const productIndex = currentWishlist.indexOf(
+                            product._id
+                          );
+                          const updatedWishlist = [
+                            ...currentWishlist.slice(0, productIndex),
+                            ...currentWishlist.slice(productIndex + 1),
+                          ];
+                          const newWishlist = { wishlist: updatedWishlist };
+                          updateWishlistProducts(
+                            wishlistID,
+                            newWishlist,
+                            dispatch
+                          );
+                          setRemove(true);
+                        }}
+                      />
+                    ) : (
+                      <FavoriteBorderOutlined
+                        onClick={() => {
+                          setProductId(product._id);
+                        }}
+                      />
+                    )}
+                  </span>
+                )}
+              </div>
+
               <div className="flex justify-between">
                 <p className="font-heading  text-gold text-lg">
                   {product.title}

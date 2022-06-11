@@ -20,11 +20,21 @@ import {
   deleteProductFailure,
 } from "../redux/productSlice";
 import { addOrder, updateOrder } from "../redux/orderSlice";
+import {
+  updateWishlist,
+  createWishlist,
+  addToWishlist,
+} from "../redux/wishlistSlice";
 export const registration = async (dispatch, navigate, user) => {
   dispatch(registrationStart());
   try {
     const res = await publicRequest.post("/auth/register", user);
+    const userId = await res.data._id;
+    const wishlistResponse = await publicRequest.post("wishlist", {
+      userId: userId,
+    });
     dispatch(registrationSuccess(res.data));
+    dispatch(createWishlist(wishlistResponse.data));
     navigate("/", { replace: true });
   } catch (err) {
     console.log(err.message);
@@ -34,11 +44,17 @@ export const registration = async (dispatch, navigate, user) => {
 export const login = async (dispatch, navigate, user) => {
   dispatch(loginStart());
   try {
-    console.log(user);
     const res = await publicRequest.post("/auth/login", user);
-    dispatch(loginSuccess(res.data));
+    const userId = await res.data._id;
+    const wishlist = await publicRequest.post("wishlist", {
+      userId: userId,
+    });
+    const wishlistResponse = await publicRequest.get(`wishlist/${userId}`);
+    dispatch(createWishlist(wishlist.data));
 
+    dispatch(loginSuccess(res.data));
     navigate("/account", { replace: true });
+    dispatch(addToWishlist(wishlistResponse.data));
   } catch (err) {
     dispatch(loginFailure());
   }
@@ -91,5 +107,14 @@ export const updateOrderStatus = async (id, item, dispatch) => {
     dispatch(updateOrder(res.data));
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const updateWishlistProducts = async (id, item, dispatch) => {
+  try {
+    const res = await publicRequest.patch(`wishlist/${id}`, item);
+    dispatch(updateWishlist(res.data));
+  } catch (error) {
+    console.log(error.message);
   }
 };

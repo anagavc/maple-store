@@ -17,6 +17,7 @@ import { useSelector } from "react-redux";
 import Successful from "./pages/Successful";
 import Account from "./pages/Account";
 import OrderHistory from "./pages/OrderHistory";
+import OrderInformation from "./pages/OrderInformation";
 function App() {
   const { currentUser } = useSelector((state) => state.user);
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/orders" element={<OrderHistory />} />
+          <Route path="/order/:id" element={<OrderInformation />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/account" element={<Account />} />
 

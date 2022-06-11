@@ -1,8 +1,4 @@
-import {
-  ArrowRightAlt,
-  AssignmentTurnedIn,
-  Verified,
-} from "@mui/icons-material";
+import { ArrowRightAlt, AssignmentTurnedIn } from "@mui/icons-material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
@@ -38,7 +34,7 @@ const Successful = () => {
         console.log(error);
       }
     };
-    createOrder();
+    data && createOrder();
   }, []);
 
   return (
