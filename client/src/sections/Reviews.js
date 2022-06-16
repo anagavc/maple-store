@@ -1,5 +1,8 @@
 import { HeadingThree } from "../components/UI/FontStyles/FontStyles";
 import reviewer1 from "../images/reviewer1.png";
+import reviewer2 from "../images/reviewer2.png";
+import reviewer3 from "../images/reviewer3.png";
+import reviewer4 from "../images/reviewer4.png";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,36 +11,44 @@ import "swiper/css";
 import "swiper/css/bundle";
 import "swiper/css/pagination";
 // import required modules
-import { Pagination } from "swiper";
+import SwiperCore, { Pagination, Autoplay, EffectFade } from "swiper";
+SwiperCore.use([Pagination, Autoplay, EffectFade]);
+
 const Reviews = () => {
   const reviews = [
     {
+      id: 1,
       reviewer: "Jessica Banks",
       image: reviewer1,
       review:
-        "I love the reliabilty of the products that I have purchased from   here.",
-      designation: "    Chief executive officer - Banks Media",
+        "They were extremely reliable and delivered way beyond my expectation",
+      designation: "Realtor",
     },
     {
-      reviewer: "Jessica Banks",
-      image: reviewer1,
-      review:
-        "I love the reliabilty of the products that I have purchased from   here.",
-      designation: "    Chief executive officer - Banks Media",
+      id: 2,
+
+      reviewer: "Adams Andy",
+      image: reviewer2,
+      review: "Impressive customer service,I was delighted with my purchase",
+      designation: "Digital marketer",
     },
     {
-      reviewer: "Jessica Banks",
-      image: reviewer1,
+      id: 3,
+
+      reviewer: "James Fred",
+      image: reviewer3,
       review:
-        "I love the reliabilty of the products that I have purchased from   here.",
-      designation: "    Chief executive officer - Banks Media",
+        "Will definitely be back because there was always someone on hand to meet my needs.",
+      designation: "Entrepreneur",
     },
     {
-      reviewer: "Jessica Banks",
-      image: reviewer1,
+      id: 4,
+
+      reviewer: "Felicity Fletcher",
+      image: reviewer4,
       review:
         "I love the reliabilty of the products that I have purchased from   here.",
-      designation: "    Chief executive officer - Banks Media",
+      designation: "Saleswoman",
     },
   ];
   return (
@@ -49,10 +60,12 @@ const Reviews = () => {
         pagination={{
           clickable: true,
         }}
-        autoplay
         spaceBetween={50}
         slidesPerView={3}
-        modules={[Pagination]}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -61,21 +74,25 @@ const Reviews = () => {
             slidesPerView: 3,
           },
         }}
-        className="flex justify-between space-x-6 w-full h-full"
+        className="flex justify-between space-x-6 w-full"
       >
         {reviews.map((review, index) => {
           return (
             <SwiperSlide>
               <div
-                className="flex flex-col justify-between w-full items-center bg-pry-100  md:px-12 px-6 pb-16 pt-8 space-y-6 md:space-y-9"
+                className="flex flex-col justify-between w-full  items-center bg-pry-100  md:px-12 px-6 pb-16 pt-8 space-y-4 md:space-y-6"
                 key={index}
               >
                 <HeadingThree title="&rdquo;" color="gold" />
-                <p className="font-heading text-gold text-base text-center">
+                <p className="font-heading text-gold text-base text-center h-24 md:h-auto">
                   {review.review}
                 </p>
-                <div className="w-24 h-24 flex items-center justify-center rounded-full border border-pry-100 bg-gold">
-                  <img src={review.image} className="w-full " alt="review" />
+                <div className="w-28 h-28 flex flex-col items-center justify-center rounded-full pb-2 bg-gold">
+                  <img
+                    src={review.image}
+                    className="w-4/5 py-4 rounded-full bg-pry-100 "
+                    alt="review"
+                  />
                 </div>
                 <p className="tracking-widest font-heading  text-gold text-lg">
                   {review.reviewer}

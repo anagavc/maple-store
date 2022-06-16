@@ -43,7 +43,7 @@ const NavBar = () => {
   ];
 
   return (
-    <div className="drop-shadow md:flex md:justify-between w-full fixed top-0 left-0 bg-pry-100 px-12">
+    <div className="drop-shadow-lg md:flex md:justify-between w-full fixed top-0 left-0 bg-pry-100 px-12">
       <div className="md:flex justify-between items-center bg-pry-100 md:py-2 px-7 md:px-10 b py-4">
         <div
           className="text-3xl text-gold absolute left-4 ml-6 top-2 cursor-pointer md:hidden"

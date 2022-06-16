@@ -34,7 +34,11 @@ export const Paragraph = ({ children }) => {
 };
 
 export const ParagraphLarge = ({ children }) => {
-  return <p className="text-gold font-body text-lg font-bold">{children}</p>;
+  return (
+    <p className="text-gold font-body text-md text-center font-bold">
+      {children}
+    </p>
+  );
 };
 export const TableHeader = ({ children }) => {
   return (

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Account = (props) => {
   const user = useSelector((state) => state.user.currentUser);
+
   return (
     <div className="w-full bg-pry-50 items-center justify-center  flex h-full pt-32 pb-20 px-4 lg:px-0">
       <div className="w-full  lg:w-2/5 bg-pry-100 flex  flex-col justify-center items-center lg:space-x-4 p-4 lg:p-4 ">

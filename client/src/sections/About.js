@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import {
   HeadingFour,
   HeadingTwo,
@@ -35,9 +36,12 @@ const About = () => {
           precious stones obtainable on earth, every piece is custom made with
           your exact specification.
         </p>
-        <button className="bg-pry-100  flex justify-center w-full text-gold border-t border-t-gold font-heading py-4 px-8  hover:bg-gold hover:text-pry-100 font-medium transition duration-300">
+        <NavLink
+          to="products/allProducts"
+          className="bg-pry-100  flex justify-center w-full text-gold border-t border-t-gold font-heading py-4 px-8  hover:bg-gold hover:text-pry-100 font-medium transition duration-300"
+        >
           EXPLORE OUR COLLECTIONS
-        </button>
+        </NavLink>
       </div>
       <div className="bg-pry-100 px-6  py-6 border-2 border-gold md:border-0 md:py-12 md:px-12 w-4/5 -mt-24 md:mt-0 md:w-2/5 md:-ml-72 z-10">
         <img src={aboutImage} alt="about" />

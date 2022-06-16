@@ -8,6 +8,8 @@ import Orders from "../pages/Orders";
 import UpdateProduct from "../pages/UpdateProduct";
 import UpdateOrderStatus from "../pages/UpdateOrderStatus";
 import ProductGrid from "../pages/ProductGrid";
+import Enquiries from "../pages/Enquiries";
+import Subscribers from "../pages/Subscribers";
 
 const AdminLayout = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -29,6 +31,8 @@ const AdminLayout = () => {
                 element={<UpdateOrderStatus />}
               ></Route>
               <Route path="/orders" element={<Orders />} />
+              <Route path="/enquiries" element={<Enquiries />} />
+              <Route path="/subscribers" element={<Subscribers />} />
             </Routes>
           </div>
         </div>

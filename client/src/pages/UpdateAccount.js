@@ -13,7 +13,6 @@ const UpdateAccount = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userID = location.pathname.split("/")[2];
-  console.log(userID);
 
   const {
     register,
@@ -22,7 +21,7 @@ const UpdateAccount = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    updateUserInfo(userID, { ...data }, dispatch, navigate);
+    updateUserInfo(userID, data, dispatch, navigate);
   };
   return (
     <>
@@ -37,7 +36,7 @@ const UpdateAccount = () => {
             <p className="hidden"></p>
           ) : (
             <p className="text-red-100 font-normal text-sm font-body">
-              You have entered an invalid username or password
+              {error.message}
             </p>
           )}
           <div className="flex justify-between items-center h-full w-full border border-pry-100 bg-gold">
@@ -110,7 +109,6 @@ const UpdateAccount = () => {
                     Password
                   </label>
                   <input
-                    placeholder="•••••••••••"
                     id="password"
                     type="password"
                     register={register}
@@ -129,7 +127,7 @@ const UpdateAccount = () => {
                 </div>
 
                 <div>
-                  <SubmitButton title="UpdateAccount" />
+                  <SubmitButton title="Update account" />
                 </div>
               </form>
             </div>

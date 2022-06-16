@@ -1,7 +1,7 @@
 import React from "react";
 import PrimaryButton from "../components/UI/Buttons/PrimaryButton";
-import rings from "../images/earrings.jpg";
-import bracelet from "../images/bracelet.jpg";
+import earrings from "../images/earrings.jpg";
+import rings from "../images/rings.jpg";
 import watch from "../images/watch.jpg";
 import necklace from "../images/necklace.jpg";
 import bag from "../images/bag.jpg";
@@ -14,44 +14,44 @@ const Categories = () => {
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
       image: rings,
-      path: "products/rings",
+      path: "/products/rings",
     },
     {
       name: "necklaces",
       description:
-        "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
-      image: bracelet,
-      path: "products/necklaces",
+        "The collection of bespoke necklaces fabricated with the rarest metals to exude elegance on the bearer.",
+      image: necklace,
+      path: "/products/necklaces",
     },
     {
       name: "earrings",
       description:
-        "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
-      image: necklace,
-      path: "products/earrings",
+        "The collection of bespoke earrings fabricated with the rarest metals to exude elegance on the bearer.",
+      image: earrings,
+      path: "/products/earrings",
     },
   ];
   const collectionsTwo = [
     {
       name: "watches",
       description:
-        "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
+        "The collection of bespoke watches fabricated with the rarest materials to exude elegance on the bearer.",
       image: watch,
-      path: "products/watches",
+      path: "/products/watches",
     },
     {
       name: "bags",
       description:
-        "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
+        "The collection of bespoke  bags fabricated with the rarest materials to exude elegance on the bearer.",
       image: bag,
-      path: "products/bags",
+      path: "/products/bags",
     },
     {
       name: "shoes",
       description:
-        "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
+        "The collection of bespoke shoes fabricated with the rarest materials to exude elegance on the bearer.",
       image: shoe,
-      path: "products/shoes",
+      path: "/products/shoes",
     },
   ];
   return (

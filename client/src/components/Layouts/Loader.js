@@ -4,7 +4,7 @@ const Loader = ({ payment }) => {
   let color = "#2C3F6C";
 
   return (
-    <div className="bg-pry-50 h-screen  flex flex-col justify-center align-items-center py-80">
+    <div className="bg-pry-50 h-screen space-y-16  flex flex-col  items-center py-28">
       <CircleLoader color={color} loading={loading} size={60} />
       {payment && (
         <h2 className="text-center text-pry-100 font-bold text-xl mb-6 font-body">

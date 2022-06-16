@@ -6,16 +6,7 @@ import Sidebar from "./Sidebar";
 import Dashboard from "../pages/Dashboard";
 import ReviewDailyEntries from "../pages/ReviewDailyEntries";
 import AddExpense from "../pages/AddExpense";
-import Students from "../pages/Students";
-import AddStudent from "../pages/AddStudent";
-import StudentInformation from "../pages/StudentInformation";
-import AddStudentPayment from "../pages/AddStudentPayment";
-import Payments from "../pages/Payments";
-import PaymentEntries from "../pages/PaymentEntries";
-import Teller from "./Teller";
-import UserManagement from "../pages/UserManagement";
 import PostDailyEntries from "../pages/PostDailyEntries";
-import UpdateProduct from "../pages/UpdateProduct";
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(true);

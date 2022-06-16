@@ -1,13 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import admin from "../../images/admin.jfif";
-import {
-  DashboardIcon,
-  PaymentsIcon,
-  StudentsIcon,
-  ManagementIcon,
-  LogoutIcon,
-} from "./Icons";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import CommentIcon from "@mui/icons-material/Comment";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import LocalPostOfficeIcon from "@mui/icons-material/LocalPostOffice";
+import { DashboardIcon } from "./Icons";
 
 import { HeadingTwo } from "../../components/UI/FontStyles/FontStyles";
 const Sidebar = ({ isOpen, setIsOpen }) => {
@@ -20,31 +17,25 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     {
       title: "Products",
       path: "products",
-      icon: <PaymentsIcon />,
+      icon: <InventoryIcon />,
     },
     {
       title: "Orders",
       path: "orders",
-      icon: <StudentsIcon />,
+      icon: <AddShoppingCartIcon />,
     },
     {
-      title: "Users",
-      path: "users",
-      icon: <ManagementIcon />,
+      title: "Enquiries",
+      path: "enquiries",
+      icon: <CommentIcon />,
+    },
+    {
+      title: "Subscribers",
+      path: "subscribers",
+      icon: <LocalPostOfficeIcon />,
     },
   ];
-  const userActions = [
-    {
-      title: "Admin",
-      path: "/user",
-      image: admin,
-    },
-    {
-      title: "Logout",
-      path: "/logout",
-      icon: <LogoutIcon />,
-    },
-  ];
+
   return (
     <aside
       className={`${
@@ -86,34 +77,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             >
               <span>{element.icon}</span>
               <p>{element.title}</p>
-            </NavLink>
-          ))}
-        </div>
-        <div className="flex flex-col space-y-4 mt-12">
-          <p className="text-gold text-base font-body font-bold px-8">
-            Profile
-          </p>
-          {userActions.map((action, index) => (
-            <NavLink
-              to={action.path}
-              key={index}
-              className={(navData) =>
-                navData.isActive
-                  ? "text-gold border-gold border inline-flex  items-center space-x-4 py-4 px-8  ml-4 mr-8 "
-                  : "text-gold inline-flex  items-center space-x-4 py-4 px-8  hover:border mr-8 hover:border-gold transition duration-300 ml-2"
-              }
-            >
-              {!action.image && <span>{action.icon}</span>}
-              {action.image && (
-                <div className="w-10">
-                  <img
-                    src={action.image}
-                    alt="The Admin"
-                    className="rounded-full "
-                  />
-                </div>
-              )}
-              <p>{action.title}</p>
             </NavLink>
           ))}
         </div>

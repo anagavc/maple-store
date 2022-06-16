@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import {
   HeadingFour,
   HeadingTwo,
@@ -7,7 +8,7 @@ import welcomeimg2 from "../images/heroimg.jpg";
 import welcomeimg3 from "../images/welcomeImg3.jpg";
 const Welcome = () => {
   return (
-    <div className="bg-pry-50 px-8 md:px-24 py-24 md:py-48 flex flex-col md:flex-row justify-around  h-4/5 w-full  ">
+    <div className="bg-pry-50 px-8 md:px-24 py-16 md:py-48 flex flex-col md:flex-row justify-around  h-3/5 w-full  ">
       <div className="flex justify-center items-center  w-full md:w-auto">
         <div className="border border-pry-100 px-2 py-2">
           <img
@@ -38,11 +39,15 @@ const Welcome = () => {
         <p className="font-body text-pry-100 text-base text-justify text-wrap">
           We offer you jewelleries that are made with the rarest precious stones
           obtainable on earth, every piece is custom made with your exact
-          specification.
+          specification, our goal is to make you choose us as your number one
+          online shopping destination with the premium services that we offer.
         </p>
-        <button className="bg-pry-100 text-gold font-body py-4 px-8 uppercase hover:bg-gold hover:text-pry-100 font-medium transition duration-300">
+        <NavLink
+          to="products/allProducts"
+          className="bg-pry-100 text-gold text-center font-body py-4 px-8 uppercase hover:bg-gold hover:text-pry-100 font-medium transition duration-300"
+        >
           Explore
-        </button>
+        </NavLink>
       </div>
     </div>
   );

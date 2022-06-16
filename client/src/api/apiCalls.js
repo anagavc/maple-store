@@ -43,6 +43,7 @@ import {
   createWishlist,
   addToWishlist,
 } from "../redux/wishlistSlice";
+
 export const registration = async (dispatch, navigate, user) => {
   dispatch(registrationStart());
   try {
@@ -53,7 +54,7 @@ export const registration = async (dispatch, navigate, user) => {
     });
     dispatch(registrationSuccess(res.data));
     dispatch(createWishlist(wishlistResponse.data));
-    navigate("/", { replace: true });
+    navigate("/account", { replace: true });
   } catch (err) {
     console.log(err.message);
     dispatch(registrationFailure());
@@ -82,10 +83,11 @@ export const logout = (dispatch, navigate) => {
 export const updateUserInfo = async (id, user, dispatch, navigate) => {
   dispatch(updateUserStart());
   try {
-    const res = await publicRequest.put(`users/${id}`, user);
+    const res = await publicRequest.patch(`users/${id}`, user);
     dispatch(updateUserSuccess(res.data));
     navigate("/account");
   } catch (error) {
+    console.log(error.message);
     dispatch(updateUserFailure());
   }
 };

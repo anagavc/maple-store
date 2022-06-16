@@ -35,7 +35,7 @@ export const HeaderButton = ({ buttonStyle }) => {
   return (
     <NavLink
       to="/shop"
-      className={`${buttonStyle} border justify-center mt-6  border-gold py-4 px-4 uppercase font-body hover:bg-gold hover:text-pry-100 transition duration-300 text-gold`}
+      className={`${buttonStyle} border justify-center mt-6  border-gold py-4 px-4 uppercase bg-gold font-body hover:bg-pry-50 hover:text-pry-100 transition duration-300 text-pry-100`}
     >
       shop now
     </NavLink>

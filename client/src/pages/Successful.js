@@ -67,7 +67,7 @@ const Successful = () => {
           </NavLink>
           <NavLink
             className=" border border-gold text-gold py-2 px-8 font-body text-base hover:bg-gold hover:text-pry-100 transition duration-300"
-            to="/shop"
+            to="/products/allProducts"
           >
             Shop more
           </NavLink>

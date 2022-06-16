@@ -1,14 +1,21 @@
-import { HeadingTwo } from "../components/UI/FontStyles/FontStyles";
-import registerImg from "../images/about.jpg";
+import {
+  HeadingTwo,
+  ParagraphLarge,
+} from "../components/UI/FontStyles/FontStyles";
+import loginImg from "../images/login.svg";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { SubmitButton } from "../components/UI/Buttons/PrimaryButton";
 import { login } from "../api/apiCalls";
 import { useSelector } from "react-redux";
-import Loader from "../components/Layouts/Loader";
+import ClipLoader from "react-spinners/ClipLoader";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
-  const { isFetching, error } = useSelector((state) => state.user);
+  let loading = true;
+  let color = "#D2CAA2";
+
+  const { error, isFetching } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {
@@ -32,7 +39,7 @@ const Login = () => {
           </p>
         )}
         <div className="flex justify-between items-center h-full w-full border border-pry-100 bg-gold">
-          <div className="flex-1 p-12 space-y-6">
+          <div className="md:flex-1 px-4 py-12 w-full md:p-12 space-y-6">
             <HeadingTwo
               title="Login information"
               color="text-pry-100"
@@ -96,20 +103,42 @@ const Login = () => {
               </div>
 
               <div>
-                <SubmitButton title="Login" />
+                {isFetching ? (
+                  <button
+                    type="disabled"
+                    disabled={true}
+                    className=" flex  justify-center items-center space-x-4  w-full  font-body py-3 px-8  bg-pry-100 text-gold font-medium transition duration-300"
+                  >
+                    <ClipLoader color={color} loading={loading} size={25} />
+                    <span className="animate-pulse">Signing in</span>
+                  </button>
+                ) : (
+                  <SubmitButton title="Login" />
+                )}
+              </div>
+              <div className="w-full flex  justify-center flex-row md:mx-auto">
+                <p className="text-pry-100 font-body text-base">
+                  Don't have an account?
+                </p>
+                <NavLink
+                  className="text-pry-100 font-body ml-2 font-bold text-base hover:text-pry-50 transition duration-300"
+                  to="/register"
+                >
+                  Register
+                </NavLink>
               </div>
             </form>
           </div>
 
-          <div className="bg-pry-100 flex-1 p-12 flex flex-col">
-            <img src={registerImg} alt="welcome" />
-            <HeadingTwo
-              title="
-               At maple store, we are commited to ensure you have a blissful
-            shopping experience."
-              color="text-gold"
-              size="text-base text-center"
-            />
+          <div className="bg-pry-100 flex-1 p-12 hidden md:flex flex-col h-full">
+            <ParagraphLarge>
+              At maple store, we are commited to ensure you have a blissful
+              shopping experience.
+            </ParagraphLarge>
+            <img src={loginImg} alt="welcome" className="h-96" />
+            <ParagraphLarge>
+              We look forward to providing you a great &amp; funfilled shopping.
+            </ParagraphLarge>
           </div>
         </div>
       </div>

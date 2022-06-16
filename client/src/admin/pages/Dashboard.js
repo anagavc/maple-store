@@ -1,35 +1,39 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AddPaymentIcon, DailyEntry } from "../components/Icons";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 import { Paragraph } from "../../components/UI/FontStyles/FontStyles";
 import ProductGrid from "./ProductGrid";
+import Comment from "@mui/icons-material/Comment";
+import { LocalPostOffice } from "@mui/icons-material";
 
 const Dashboard = () => {
   const actions = [
     {
       title: "Add product",
       path: "../addProduct",
-      icon: <AddPaymentIcon />,
-      style: "text-green-100 hover:text-green-200",
+      icon: <AddBoxIcon />,
+      style: "text-pry-100 hover:text-grey",
     },
     {
       title: "Manage orders",
-      path: "../product/:id",
-      icon: <AddPaymentIcon />,
-      style: "text-red-100 hover:text-red-200",
+      path: "../orders",
+      icon: <AddShoppingCartIcon />,
+      style: "text-pry-100 hover:text-grey",
     },
     {
-      title: "Manage users",
-      path: "reviewDailyEntries",
-      icon: <DailyEntry />,
-      style: "text-blue-500 hover:text-blue-600",
+      title: "Manage enquiries",
+      path: "../enquiries",
+      icon: <Comment />,
+      style: "text-pry-100 hover:text-grey",
     },
     {
-      title: "Manage products",
-      path: "postDailyEntries",
-      icon: <DailyEntry />,
-      style: "text-blue-500 hover:text-blue-600",
+      title: "Manage subscribers",
+      path: "../subscribers",
+      icon: <LocalPostOffice />,
+      style: "text-pry-100 hover:text-grey",
     },
   ];
 
