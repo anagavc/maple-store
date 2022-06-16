@@ -49,10 +49,7 @@ const Reviews = () => {
         pagination={{
           clickable: true,
         }}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
+        autoplay
         spaceBetween={50}
         slidesPerView={3}
         modules={[Pagination]}

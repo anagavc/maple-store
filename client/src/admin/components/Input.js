@@ -21,13 +21,17 @@ const Input = ({
       </label>
       {type === "select" ? (
         <select
-          {...register(id, {
-            required: `${id} is required`,
-            minLength: {
-              value: 4,
-              message: `${id} must be more than 4 characters`,
-            },
-          })}
+          {...(register
+            ? {
+                ...register(id, {
+                  required: `${id} is required`,
+                  minLength: {
+                    value: 3,
+                    message: `${id} must be more than 3 characters`,
+                  },
+                }),
+              }
+            : "")}
           className={`py-2 px-4 border border-pry-100 font-body bg-pry-50 text-sm focus:outline-none focus:border-pry-100 focus:ring-pry-100 focus:ring-1 transition duration-300 w-full
    `}
           name={name}
@@ -44,19 +48,17 @@ const Input = ({
    `}
           type={type}
           id={id}
-          {...register(id, {
-            required: `${id} is required`,
-            minLength: {
-              value: 4,
-              message: `${id} must be more than 4 characters`,
-            },
-          })}
+          {...(register
+            ? {
+                ...register(id),
+              }
+            : "")}
           placeholder={placeholder}
         />
       )}
 
       <p className="text-red-100 font-normal text-sm font-body">
-        {errors[id] && errors[id]?.message}
+        {errors && errors[id] && errors[id]?.message}
       </p>
     </div>
   );

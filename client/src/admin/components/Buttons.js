@@ -34,6 +34,7 @@ export const SecondaryButton = ({ children, onClick, path }) => {
       ) : (
         <button
           onClick={onClick}
+          type="button"
           className="border border-pry-100 text-pry-100 w-full  py-2 px-4  text-base hover:bg-pry-100 hover:text-gold transition duration-300"
         >
           {children}

@@ -1,9 +1,6 @@
-import { MyLocation, Book, Settings } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import PrimaryButton from "../components/UI/Buttons/PrimaryButton";
-import { HeadingTwo } from "../components/UI/FontStyles/FontStyles";
-import userImg from "../images/reviewer1.png";
+
 const Account = (props) => {
   const user = useSelector((state) => state.user.currentUser);
   return (
@@ -17,15 +14,11 @@ const Account = (props) => {
           </div>
           <div className="flex justify-between px-2 lg:px-8 w-full lg:w-4/5 space-x-4">
             <div className="flex flex-col justify-between space-y-6">
-              <p className="text-gold text-base font-body ">Name </p>
               <p className="text-gold text-base font-body ">Username</p>
               <p className="text-gold text-base font-body ">Email </p>
             </div>
             <div className="border-l border-l-gold justify-start"></div>
             <div className="flex flex-col justify-between space-y-6">
-              <p className="text-gold text-base font-body ">
-                {user._id.substring(0, 8)}
-              </p>
               <p className="text-gold text-base font-body ">{user.username}</p>
               <p className="text-gold text-base font-body ">{user.email}</p>
             </div>
@@ -34,7 +27,7 @@ const Account = (props) => {
           <div className="flex flex-col lg:flex-row justify-between space-y-4 lg:space-y-0 lg:space-x-4">
             <NavLink
               className="  text-gold py-2 px-12 font-body text-md border  hover:bg-gold hover:text-pry-100 transition duration-300"
-              to={`update/:id`}
+              to={`/account/${user._id}`}
             >
               Edit Account
             </NavLink>

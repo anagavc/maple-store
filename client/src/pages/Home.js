@@ -4,14 +4,14 @@ import Header from "../sections/Header";
 import Layout from "../components/Layouts/Layout";
 const Home = () => {
   return (
-    <Layout>
+    <>
       <header>
         <Header />
       </header>
       <main>
         <Main />
       </main>
-    </Layout>
+    </>
   );
 };
 

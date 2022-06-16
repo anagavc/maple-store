@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { PrimaryButton, SecondaryButton } from "../components/Buttons";
 
 import { HeadingFour } from "../components/FontStyles";
@@ -12,88 +12,95 @@ import {
 } from "firebase/storage";
 import app from "../../firebase";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { addProduct } from "../../api/apiCalls";
+import { useLocation, useNavigate } from "react-router-dom";
+import { updateProduct } from "../../api/apiCalls";
 import { useSelector } from "react-redux";
 import Loader from "../../components/Layouts/Loader";
 
-const AddProduct = () => {
-  const { isFetching } = useSelector((state) => state.product);
+const UpdateProduct = () => {
+  const location = useLocation();
+  const productID = location.pathname.split("/")[3];
+  const [loading, setLoading] = useState(false);
+
+  const product = useSelector((state) =>
+    state.product.products.find((product) => product._id === productID)
+  );
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data.img[0]);
+    const fileName = new Date().getTime() + data.img[0]?.name;
+    if (data.img[0]) {
+      console.log(product.img);
 
-    const fileName = new Date().getTime() + data.img[0].name;
-    const storage = getStorage(app);
-    const storageRef = ref(storage, fileName);
-    const uploadTask = uploadBytesResumable(storageRef, data.img[0]);
-    uploadTask.on(
-      "state_changed",
-      (progress) => {
-        console.group(progress);
-      },
-      (error) => {
-        alert(error);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          const product = { ...data, img: downloadURL };
-          addProduct(dispatch, product);
-        });
-      }
-    );
+      setLoading(true);
+      const storage = getStorage(app);
+      const storageRef = ref(storage, fileName);
+      const uploadTask = uploadBytesResumable(storageRef, data.img[0]);
+      uploadTask.on(
+        "state_changed",
+        (progress) => {
+          console.group(progress);
+        },
+        (error) => {
+          alert(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log("File is availabe for download at", downloadURL);
+            const updatedProduct = { ...data, img: downloadURL };
+            updateProduct(productID, updatedProduct, dispatch);
+          });
+        }
+      );
+      setLoading(false);
+    } else if (!data.img[0]) {
+      setLoading(true);
+      console.log(product.img);
+      const updatedProduct = { ...data, img: product.img };
+      updateProduct(productID, updatedProduct, dispatch, navigate);
+      setLoading(false);
+    }
   };
 
   const leftColumnInputs = [
     {
       name: "title",
       id: "title",
-      placeholder: "Enter the name of the product",
+      placeholder: product.title,
       register: register,
-      errors: errors,
     },
     {
       name: "desc",
       id: "desc",
-      placeholder: "Enter a description for the product",
+      placeholder: product.desc,
       register: register,
-      errors: errors,
     },
     {
       name: "material",
       id: "material",
-      placeholder: "Enter the material for the product",
+      placeholder: product.material,
       register: register,
-      errors: errors,
     },
     {
       name: "category",
       id: "category",
-      placeholder: "Enter the category(ies) of the product",
+      placeholder: product.category,
       register: register,
-      errors: errors,
     },
     {
       name: "price",
       id: "price",
-      placeholder: "0.00",
+      placeholder: product.price,
       type: "number",
       register: register,
-      errors: errors,
     },
     {
       name: "color",
       id: "color",
-      placeholder: "Enter the color of the product",
+      placeholder: product.color,
       register: register,
-      errors: errors,
     },
     {
       name: "inStock",
@@ -105,27 +112,28 @@ const AddProduct = () => {
         { value: false, name: "No" },
       ],
       register: register,
-      errors: errors,
     },
     {
       name: "img",
       id: "img",
       type: "file",
-      placeholder: "Select an image for the product",
+      placeholder: product.img,
       register: register,
-      errors: errors,
     },
   ];
 
   return (
     <>
-      {isFetching ? (
+      {loading ? (
         <Loader />
       ) : (
         <div className="flex flex-col w-full justify-between space-y-4 px-6 lg:px-0">
           <div className="flex justify-start whitespace-pre items-center ">
             <HeadingFour>Dashboard</HeadingFour>
-            <span className="text-grey-500 font-normal "> / Add a Product</span>
+            <span className="text-grey-500 font-normal ">
+              {" "}
+              / Update {product.title}
+            </span>
           </div>
 
           <form
@@ -161,4 +169,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

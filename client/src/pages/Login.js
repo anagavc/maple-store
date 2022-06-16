@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import Loader from "../components/Layouts/Loader";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
-  const { isFetching, error, message } = useSelector((state) => state.user);
+  const { isFetching, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {
@@ -24,7 +24,13 @@ const Login = () => {
     <>
       <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-between  w-full space-y-4">
         <p className="text-pry-100  font-body text-lg font-medium ">Login</p>
-        {error && message}
+        {error === false ? (
+          ""
+        ) : (
+          <p className="text-red-100 font-normal text-sm font-body">
+            You have entered an invalid username or password
+          </p>
+        )}
         <div className="flex justify-between items-center h-full w-full border border-pry-100 bg-gold">
           <div className="flex-1 p-12 space-y-6">
             <HeadingTwo
@@ -48,7 +54,7 @@ const Login = () => {
                   name="username"
                   id="username"
                   type="text"
-                  className="px-4  py-2 w-full placeholder:text-pry-100 text-pry-100 bg-gold border border-pry-100"
+                  className="px-4  py-2  placeholder:text-pry-100 text-pry-100 bg-gold border border-pry-100 focus:outline-none focus:border-pry-100 focus:ring-pry-100 focus:ring-1 transition duration-300 w-full"
                   {...register("username", {
                     required: "Username is required",
                     minLength: {
@@ -75,7 +81,7 @@ const Login = () => {
                   id="password"
                   type="password"
                   register={register}
-                  className="px-4  py-2 w-full placeholder:text-pry-100 text-pry-100 bg-gold border border-pry-100"
+                  className="px-4  py-2  placeholder:text-pry-100 text-pry-100 bg-gold border border-pry-100 focus:outline-none focus:border-pry-100 focus:ring-pry-100 focus:ring-1 transition duration-300 w-full"
                   {...register("password", {
                     required: "Password is required",
                     minLength: {

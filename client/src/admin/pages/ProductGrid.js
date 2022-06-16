@@ -44,7 +44,7 @@ const ProductGrid = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row._id}>
+            <Link to={`../product/${params.row._id}`}>
               <button className="border-0 rounded-sm px-4 py-2 bg-pry-100 text-gold my-4">
                 Edit
               </button>

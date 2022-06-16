@@ -28,6 +28,7 @@ const NavItem = ({ path, name, id, icon, qty, click }) => {
           to={path}
           className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0 my-7 text-gold  hover:text-pry-50 transition duration-500"
           key={id}
+          onClick={click}
         >
           {name}
         </NavLink>

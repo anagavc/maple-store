@@ -18,40 +18,48 @@ import Successful from "./pages/Successful";
 import Account from "./pages/Account";
 import OrderHistory from "./pages/OrderHistory";
 import OrderInformation from "./pages/OrderInformation";
+import Wishlist from "./pages/Wishlist";
+import UpdateAccount from "./pages/UpdateAccount";
+import ScrollToTop from "./utils/ScrollToTop";
 function App() {
   const { currentUser } = useSelector((state) => state.user);
 
   return (
     <>
       <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
+        <ScrollToTop>
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-          <Route path="/shop" element={<Shop />} />
+            <Route path="/products" element={<Shop />} />
+            <Route path="/products/:category" element={<Shop />} />
 
-          <Route path="products/:id" element={<ProductDetail />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route
-            path="/shippingInformation"
-            element={<ShippingInformation />}
-          />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/successful" element={<Successful />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/orders" element={<OrderHistory />} />
-          <Route path="/order/:id" element={<OrderInformation />} />
-          <Route path="/register" element={<Registration />} />
-          <Route path="/account" element={<Account />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route
+              path="/shippingInformation"
+              element={<ShippingInformation />}
+            />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/successful" element={<Successful />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/orders" element={<OrderHistory />} />
+            <Route path="/order/:id" element={<OrderInformation />} />
+            <Route path="/register" element={<Registration />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/account/:id" element={<UpdateAccount />} />
+            <Route path="/wishlist" element={<Wishlist />} />
 
-          {currentUser?.isAdmin && (
-            <Route path="/admin/*" element={<AdminLayout />} />
-          )}
+            {currentUser?.isAdmin && (
+              <Route path="/admin/*" element={<AdminLayout />} />
+            )}
 
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Routes>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </ScrollToTop>
       </Layout>
     </>
   );

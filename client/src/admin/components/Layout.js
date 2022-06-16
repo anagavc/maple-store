@@ -15,6 +15,7 @@ import PaymentEntries from "../pages/PaymentEntries";
 import Teller from "./Teller";
 import UserManagement from "../pages/UserManagement";
 import PostDailyEntries from "../pages/PostDailyEntries";
+import UpdateProduct from "../pages/UpdateProduct";
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -37,25 +38,6 @@ const Layout = () => {
                 path="dashboard/postDailyEntries"
                 element={<PostDailyEntries />}
               />
-
-              <Route path="students">
-                <Route index element={<Students />} />
-                <Route path="addStudent" element={<AddStudent />} />
-
-                <Route path=":id">
-                  <Route index element={<StudentInformation />} />
-                  <Route path="addPayment" element={<AddStudentPayment />} />
-                </Route>
-              </Route>
-
-              <Route path="/payments/*" element={<Payments />} />
-              <Route
-                path="/payments/addPayment"
-                element={<AddPayment />}
-              ></Route>
-              <Route path="/payments/entries" element={<PaymentEntries />} />
-              <Route path="/payments/tellers" element={<Teller />} />
-              <Route path="/userManagement" element={<UserManagement />} />
             </Routes>
           </div>
         </div>

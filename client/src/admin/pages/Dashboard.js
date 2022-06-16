@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { HeadingFour } from "../components/FontStyles";
 import { AddPaymentIcon, DailyEntry } from "../components/Icons";
 
-import PaymentsTable, { ExpensesTables, AllTable } from "../components/Table";
-import paymentData from "../components/MockData/MOCK_DATA.json";
-import expensesData from "../components/MockData/Expenses_Data.json";
 import { Paragraph } from "../../components/UI/FontStyles/FontStyles";
 import ProductGrid from "./ProductGrid";
+
 const Dashboard = () => {
   const actions = [
     {
@@ -18,7 +15,7 @@ const Dashboard = () => {
     },
     {
       title: "Manage orders",
-      path: "addExpense",
+      path: "../product/:id",
       icon: <AddPaymentIcon />,
       style: "text-red-100 hover:text-red-200",
     },

@@ -14,18 +14,21 @@ const Categories = () => {
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
       image: rings,
-    },
-    {
-      name: "bracelets",
-      description:
-        "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
-      image: bracelet,
+      path: "products/rings",
     },
     {
       name: "necklaces",
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
+      image: bracelet,
+      path: "products/necklaces",
+    },
+    {
+      name: "earrings",
+      description:
+        "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
       image: necklace,
+      path: "products/earrings",
     },
   ];
   const collectionsTwo = [
@@ -34,18 +37,21 @@ const Categories = () => {
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
       image: watch,
+      path: "products/watches",
     },
     {
       name: "bags",
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
       image: bag,
+      path: "products/bags",
     },
     {
       name: "shoes",
       description:
         "The collection of bespoke rings fabricated with the rarest metals to exude elegance on the bearer.",
       image: shoe,
+      path: "products/shoes",
     },
   ];
   return (
@@ -74,13 +80,16 @@ const Categories = () => {
                   <p className="font-heading text-gold text-base text-center">
                     {collection.description}
                   </p>
-                  <PrimaryButton title="Browse collection" />
+                  <PrimaryButton
+                    title="Browse collection"
+                    path={collection.path}
+                  />
                 </div>
               </div>
             );
           })}
         </div>
-        <div className="flex justify-between flex-col md:flex-row md:space-x-12 w-full">
+        <div className="hidden md:flex justify-between flex-col md:flex-row md:space-x-12 w-full">
           {collectionsTwo.map((collection, index) => {
             return (
               <div
@@ -97,7 +106,10 @@ const Categories = () => {
                   <p className="font-heading text-gold text-base text-center">
                     {collection.description}
                   </p>
-                  <PrimaryButton title="Browse collection" />
+                  <PrimaryButton
+                    title="Browse collection"
+                    path={collection.path}
+                  />
                 </div>
               </div>
             );

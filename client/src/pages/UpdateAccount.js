@@ -3,26 +3,27 @@ import registerImg from "../images/about.jpg";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { SubmitButton } from "../components/UI/Buttons/PrimaryButton";
-import { useState } from "react";
-import { registration } from "../api/apiCalls";
+import { updateUserInfo } from "../api/apiCalls";
 import { useSelector } from "react-redux";
 import Loader from "../components/Layouts/Loader";
-import { useNavigate } from "react-router-dom";
-const Registration = () => {
-  const { isFetching, error } = useSelector((state) => state.user);
+import { useLocation, useNavigate } from "react-router-dom";
+const UpdateAccount = () => {
+  const { isFetching, error, currentUser } = useSelector((state) => state.user);
+  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userID = location.pathname.split("/")[2];
+  console.log(userID);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [user, setUser] = useState();
+
   const onSubmit = (data) => {
-    setUser(data);
-    registration(dispatch, navigate, data);
+    updateUserInfo(userID, { ...data }, dispatch, navigate);
   };
-  console.log(user);
   return (
     <>
       {isFetching ? (
@@ -30,20 +31,19 @@ const Registration = () => {
       ) : (
         <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-between  w-full space-y-4">
           <p className="text-pry-100  font-body text-lg font-medium ">
-            Registration
+            Update your account information
           </p>
-          {error === false ? (
-            ""
+          {onSubmit && error === false ? (
+            <p className="hidden"></p>
           ) : (
             <p className="text-red-100 font-normal text-sm font-body">
-              Please crosscheck the information you have entered
+              You have entered an invalid username or password
             </p>
           )}
-
           <div className="flex justify-between items-center h-full w-full border border-pry-100 bg-gold">
             <div className="flex-1 p-12 space-y-6">
               <HeadingTwo
-                title="Registration information"
+                title="Update your account information"
                 color="text-pry-100"
                 size="text-2xl text-center border-b border-pry-100"
               />
@@ -59,7 +59,7 @@ const Registration = () => {
                     Username
                   </label>
                   <input
-                    placeholder="Enter a username"
+                    placeholder={currentUser.username}
                     name="username"
                     id="username"
                     type="text"
@@ -84,7 +84,7 @@ const Registration = () => {
                     Email address
                   </label>
                   <input
-                    placeholder="Enter your email address"
+                    placeholder={currentUser.email}
                     name="email"
                     id="email"
                     type="text"
@@ -110,8 +110,7 @@ const Registration = () => {
                     Password
                   </label>
                   <input
-                    placeholder="Enter your password"
-                    name="password"
+                    placeholder="•••••••••••"
                     id="password"
                     type="password"
                     register={register}
@@ -120,7 +119,7 @@ const Registration = () => {
                       required: "Password is required",
                       minLength: {
                         value: 4,
-                        message: "Password must be more than 4 characters",
+                        message: "password must be more than 4 characters",
                       },
                     })}
                   />
@@ -130,7 +129,7 @@ const Registration = () => {
                 </div>
 
                 <div>
-                  <SubmitButton title="Register" />
+                  <SubmitButton title="UpdateAccount" />
                 </div>
               </form>
             </div>
@@ -152,4 +151,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default UpdateAccount;

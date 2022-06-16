@@ -8,11 +8,8 @@ import {
   ManagementIcon,
   LogoutIcon,
 } from "./Icons";
-import logo from "../../images/logo.png";
-import {
-  HeadingFour,
-  HeadingTwo,
-} from "../../components/UI/FontStyles/FontStyles";
+
+import { HeadingTwo } from "../../components/UI/FontStyles/FontStyles";
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const navElements = [
     {
@@ -27,7 +24,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     },
     {
       title: "Orders",
-      path: "/orders",
+      path: "orders",
       icon: <StudentsIcon />,
     },
     {
