@@ -5,6 +5,7 @@ import {
   ParagraphLarge,
 } from "../components/UI/FontStyles/FontStyles";
 
+import Notifications from "../components/UI/Notifications/Notifications";
 import { formatAmount } from "../utils/formatAmount";
 import InfoIcon from "@mui/icons-material/Info";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -31,6 +32,8 @@ const Cart = () => {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const [loading, setLoading] = useState(false);
+  const [remove, setRemove] = useState(false);
+
   const [stripeToken, setStripeToken] = useState(null);
 
   //handle increment and reduction of quantity
@@ -74,6 +77,8 @@ const Cart = () => {
   const totalAmount = cart.total + deliveryFee;
   return (
     <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-between  w-full space-y-4">
+      <Notifications open={remove} setOpen={setRemove} type="remove" />
+
       <p className="text-pry-100  font-body text-base font-medium ">
         Home &gt; Cart
       </p>
@@ -119,7 +124,10 @@ const Cart = () => {
                       </p>
                       <button
                         className="text-pry-100 font-body text-base hover:text-red-200"
-                        onClick={() => handleRemoveCartItem(product)}
+                        onClick={() => {
+                          handleRemoveCartItem(product);
+                          setRemove(true);
+                        }}
                       >
                         <DeleteOutlineOutlined />
                       </button>

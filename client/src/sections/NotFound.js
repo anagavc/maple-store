@@ -1,5 +1,5 @@
 import React from "react";
-import { SubmitButton } from "../components/UI/Buttons/PrimaryButton";
+import PrimaryButton from "../components/UI/Buttons/PrimaryButton";
 import { HeadingTwo } from "../components/UI/FontStyles/FontStyles";
 
 const NotFound = () => {
@@ -11,7 +11,7 @@ const NotFound = () => {
         </p>
         <HeadingTwo size="text-6xl" title="404" color="text-gold" />
         <p className="text-gold text-base font-normal">Something went wrong</p>
-        <SubmitButton title="Back to home" />
+        <PrimaryButton title="Back to home" path="/" />
       </div>
     </div>
   );

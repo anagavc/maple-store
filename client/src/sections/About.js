@@ -37,7 +37,7 @@ const About = () => {
           your exact specification.
         </p>
         <NavLink
-          to="products/allProducts"
+          to="/categories"
           className="bg-pry-100  flex justify-center w-full text-gold border-t border-t-gold font-heading py-4 px-8  hover:bg-gold hover:text-pry-100 font-medium transition duration-300"
         >
           EXPLORE OUR COLLECTIONS

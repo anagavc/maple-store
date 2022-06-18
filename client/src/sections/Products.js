@@ -138,6 +138,7 @@ const Products = () => {
                     title="Add to cart"
                     onClick={() => {
                       dispatch(addProduct({ ...product, quantity }));
+                      setAdd(true);
                     }}
                   />
                 </div>

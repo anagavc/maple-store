@@ -3,6 +3,7 @@ import { publicRequest } from "../../api/requests";
 import { Pagination } from "@mui/material";
 import usePagination from "./Pagination";
 import Loader from "./Loader";
+import Notifications from "../UI/Notifications/Notifications";
 import PrimaryButton, { BackButton } from "../UI/Buttons/PrimaryButton";
 import InfoIcon from "@mui/icons-material/Info";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
@@ -17,6 +18,7 @@ const AllProducts = ({ filters, sort }) => {
   const [loading, setLoading] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const navigate = useNavigate();
+  const [add, setAdd] = useState(false);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -93,6 +95,8 @@ const AllProducts = ({ filters, sort }) => {
   };
   return (
     <div className="flex w-full mt-24 justify-between flex-col  ">
+      <Notifications open={add} setOpen={setAdd} type="add" />
+
       {loading ? (
         <Loader />
       ) : (
@@ -131,6 +135,7 @@ const AllProducts = ({ filters, sort }) => {
                   title="Add to cart"
                   onClick={() => {
                     dispatch(addProduct({ ...product, quantity }));
+                    setAdd(true);
                   }}
                 />
               </div>

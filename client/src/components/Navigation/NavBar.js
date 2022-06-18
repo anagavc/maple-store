@@ -18,11 +18,15 @@ const NavBar = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  let [open, setOpen] = useState(false);
   const logoutHandler = () => {
     logout(dispatch, navigate);
+    setOpen(false);
   };
-  let [open, setOpen] = useState(false);
 
+  const handleClose = () => {
+    setOpen(!open);
+  };
   const navItems = [
     {
       name: "About",
@@ -58,7 +62,12 @@ const NavBar = () => {
           Maple Store
         </NavLink>
         <div className="md:hidden absolute right-4 mr-6 top-3 cursor-pointer ">
-          <NavItem path="/cart" id="cart" icon={<ShoppingBagOutlined />} />
+          <NavItem
+            qty={quantity}
+            path="/cart"
+            id="cart"
+            icon={<ShoppingBagOutlined />}
+          />
         </div>
       </div>
       <div
@@ -71,9 +80,7 @@ const NavBar = () => {
             className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0 my-7 text-gold  hover:text-pry-50 transition duration-500"
             key="accountMobile"
             to="/account"
-            onClick={() => {
-              setOpen(false);
-            }}
+            onClick={handleClose}
           >
             Account
           </NavLink>
@@ -84,19 +91,23 @@ const NavBar = () => {
               name={link.name}
               path={link.path}
               id={link.name}
-              click={() => {
-                setOpen(false);
-              }}
+              click={handleClose}
             />
           );
         })}
         {!currentUser ? (
           <>
-            <NavItem name="Register" path="/register" id="registerMobile" />
+            <NavItem
+              name="Register"
+              path="/register"
+              id="registerMobile"
+              click={handleClose}
+            />
             <NavLink
               className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0 my-7 text-gold  hover:text-pry-50 transition duration-500"
               key="loginMobile"
-              to="/register"
+              to="/login"
+              onClick={handleClose}
             >
               Sign in
             </NavLink>
@@ -107,9 +118,7 @@ const NavBar = () => {
               className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0 my-7 text-gold  hover:text-pry-50 transition duration-500"
               key="wishlistMobile"
               to="/wishlist"
-              onClick={() => {
-                setOpen(false);
-              }}
+              onClick={handleClose}
             >
               Wishlist
             </NavLink>
