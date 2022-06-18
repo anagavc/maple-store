@@ -1,6 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {
+  FadeDownAnimation,
+  FadeUpAnimation,
+} from "../components/UI/Animations/Animations";
+import {
   HeadingFour,
   HeadingTwo,
 } from "../components/UI/FontStyles/FontStyles";
@@ -8,7 +12,7 @@ import aboutImage from "../images/about.jpg";
 const About = () => {
   return (
     <div className="bg-gold  flex flex-col md:flex-row justify-between items-center w-full ">
-      <div className="flex flex-col bg-pry-100 py-32 px-8 md:px-24 space-y-8 w-full md:w-3/5">
+      <FadeUpAnimation className="flex flex-col bg-pry-100 py-32 px-8 md:px-24 space-y-8 w-full md:w-3/5">
         <HeadingFour title="About" color="gold" textColor="text-gold" />
         <HeadingTwo
           title="About Maple Stores"
@@ -42,10 +46,10 @@ const About = () => {
         >
           EXPLORE OUR COLLECTIONS
         </NavLink>
-      </div>
-      <div className="bg-pry-100 px-6  py-6 border-2 border-gold md:border-0 md:py-12 md:px-12 w-4/5 -mt-24 md:mt-0 md:w-2/5 md:-ml-72 z-10">
+      </FadeUpAnimation>
+      <FadeDownAnimation className="bg-pry-100 px-6  py-6 border-2 border-gold md:border-0 md:py-12 md:px-12 w-4/5 -mt-24 md:mt-0 md:w-2/5 md:-ml-72 z-10">
         <img src={aboutImage} alt="about" />
-      </div>
+      </FadeDownAnimation>
     </div>
   );
 };

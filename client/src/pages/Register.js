@@ -12,6 +12,10 @@ import { registration } from "../api/apiCalls";
 import { useSelector } from "react-redux";
 
 import { NavLink, useNavigate } from "react-router-dom";
+import {
+  FadeUpAnimation,
+  FadeDownAnimation,
+} from "../components/UI/Animations/Animations";
 
 const Registration = () => {
   let loading = true;
@@ -37,15 +41,11 @@ const Registration = () => {
         <p className="text-pry-100  font-body text-lg font-medium ">
           Registration
         </p>
-        {error === false ? (
-          ""
-        ) : (
-          <p className="text-red-100 font-normal text-sm font-body">
-            The email address you have entered is already in use
-          </p>
+        {error && (
+          <p className="text-red-100 font-normal text-sm font-body">{error}</p>
         )}
 
-        <div className="flex justify-between items-center h-full w-full border border-pry-100 bg-gold">
+        <FadeUpAnimation className="flex justify-between items-center h-full w-full border border-pry-100 bg-gold">
           <div className="md:flex-1 px-4 py-12 md:p-12 space-y-6 w-full">
             <HeadingTwo
               title="Registration information"
@@ -172,7 +172,7 @@ const Registration = () => {
               We look forward to providing you a great &amp; funfilled shopping.
             </ParagraphLarge>
           </div>
-        </div>
+        </FadeUpAnimation>
       </div>
     </>
   );

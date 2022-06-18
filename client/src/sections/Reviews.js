@@ -12,6 +12,7 @@ import "swiper/css/bundle";
 import "swiper/css/pagination";
 // import required modules
 import SwiperCore, { Pagination, Autoplay, EffectFade } from "swiper";
+import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 SwiperCore.use([Pagination, Autoplay, EffectFade]);
 
 const Reviews = () => {
@@ -79,7 +80,7 @@ const Reviews = () => {
         {reviews.map((review, index) => {
           return (
             <SwiperSlide>
-              <div
+              <FadeUpAnimation
                 className="flex flex-col justify-between w-full  items-center bg-pry-100  md:px-12 px-6 pb-16 pt-8 space-y-4 md:space-y-6"
                 key={index}
               >
@@ -100,7 +101,7 @@ const Reviews = () => {
                 <p className="tracking-widest font-body uppercase text-gold text-sm text-center">
                   {review.designation}
                 </p>
-              </div>
+              </FadeUpAnimation>
             </SwiperSlide>
           );
         })}

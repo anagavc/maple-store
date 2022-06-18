@@ -7,6 +7,7 @@ import { HeadingThree } from "../components/UI/FontStyles/FontStyles";
 import { addProduct } from "../redux/cartSlice";
 import { getProducts, updateWishlistProducts } from "../api/apiCalls";
 import { Favorite, FavoriteBorderOutlined } from "@mui/icons-material";
+import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 const Products = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser);
@@ -59,7 +60,7 @@ const Products = () => {
       <Notifications open={add} setOpen={setAdd} type="add" />
       <Notifications open={remove} setOpen={setRemove} type="remove" />
       <HeadingThree title="Our Products" color="gold" />
-      <div className="flex justify-center w-full md:items-center flex-wrap md:flex-nowrap">
+      <FadeUpAnimation className="flex justify-center w-full md:items-center flex-wrap md:flex-nowrap">
         {categories.map((category, index) => {
           return (
             <button
@@ -71,12 +72,12 @@ const Products = () => {
             </button>
           );
         })}
-      </div>
+      </FadeUpAnimation>
       <div className="flex  justify-between flex-col md:flex-row w-full md:flex-wrap">
         {filteredProducts.length === 0
           ? products.slice(0, 6).map((product, index) => {
               return (
-                <div
+                <FadeUpAnimation
                   className="flex flex-col justify-between space-y-8  w-full md:w-96  mb-24 border border-gold p-4 "
                   key={product._id}
                 >
@@ -141,11 +142,11 @@ const Products = () => {
                       setAdd(true);
                     }}
                   />
-                </div>
+                </FadeUpAnimation>
               );
             })
           : filteredProducts.slice(0, 6).map((product) => (
-              <div
+              <FadeUpAnimation
                 className="flex flex-col justify-between space-y-8  w-full md:w-96  mb-24 border border-gold p-4 "
                 key={product._id}
               >
@@ -209,7 +210,7 @@ const Products = () => {
                     dispatch(addProduct({ ...product, quantity }));
                   }}
                 />
-              </div>
+              </FadeUpAnimation>
             ))}
       </div>
     </div>

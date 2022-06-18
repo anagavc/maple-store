@@ -3,6 +3,7 @@ import { publicRequest } from "../../api/requests";
 import { Pagination } from "@mui/material";
 import usePagination from "./Pagination";
 import Loader from "./Loader";
+import { FadeUpAnimation } from "../UI/Animations/Animations";
 import Notifications from "../UI/Notifications/Notifications";
 import PrimaryButton, { BackButton } from "../UI/Buttons/PrimaryButton";
 import InfoIcon from "@mui/icons-material/Info";
@@ -103,7 +104,7 @@ const AllProducts = ({ filters, sort }) => {
         <div className="flex justify-between flex-wrap  w-full">
           {items.currentData().map((product) => {
             return (
-              <div
+              <FadeUpAnimation
                 className="flex flex-col justify-between space-y-6 bg-pry-100 w-full md:w-96 mb-16  p-6"
                 key={product._id}
               >
@@ -138,7 +139,7 @@ const AllProducts = ({ filters, sort }) => {
                     setAdd(true);
                   }}
                 />
-              </div>
+              </FadeUpAnimation>
             );
           })}
         </div>

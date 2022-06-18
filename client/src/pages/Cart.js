@@ -23,6 +23,7 @@ import {
 import StripeCheckout from "react-stripe-checkout";
 import { userRequest } from "../api/requests";
 import Loader from "../components/Layouts/Loader";
+import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 
 const KEY =
   "pk_test_51L55AVLWy6VIx3BFpE3XvMg8anotWAGRRbYq1EJPUB2sIfLSz5iKNbIwYtHo1ltutBtzhHwZxExD5S8B46NHoE7H00YUizf8Gg";
@@ -91,7 +92,9 @@ const Cart = () => {
         <Loader payment={true} />
       ) : cart.products.length === 0 ? (
         <div className="flex flex-col justify-between items-center space-y-4 py-12  w-full mb-24 bg-pry-100 p-4 text-gold font-body">
-          <span>You currently do not have any item in your cart yet</span>
+          <span className="text-center font-body text-base">
+            You currently do not have any item in your cart yet
+          </span>
           <div className="flex flex-col lg:flex-row justify-between space-y-4 lg:space-y-0 lg:space-x-4">
             <NavLink
               className="  text-gold py-2 px-12 font-body text-md border  hover:bg-gold hover:text-pry-100 transition duration-300"
@@ -102,7 +105,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className=" w-full  flex flex-col space-y-8">
+        <FadeUpAnimation className=" w-full  flex flex-col space-y-8">
           <p className="text-pry-100  font-body text-xl font-medium ">
             Your cart items ({cart.quantity})
           </p>
@@ -211,7 +214,7 @@ const Cart = () => {
               </StripeCheckout>
             </div>
           </div>
-        </div>
+        </FadeUpAnimation>
       )}
       <BackButton
         click={() => {

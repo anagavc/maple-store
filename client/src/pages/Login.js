@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 const Login = () => {
   let loading = true;
   let color = "#D2CAA2";
@@ -35,7 +36,7 @@ const Login = () => {
           You have entered an invalid username or password
         </p>
       )}
-      <div className="flex justify-between items-center h-full w-full border border-pry-100 bg-gold">
+      <FadeUpAnimation className="flex justify-between items-center h-full w-full border border-pry-100 bg-gold">
         <div className="md:flex-1 px-4 py-12 w-full md:p-12 space-y-6">
           <HeadingTwo
             title="Login information"
@@ -137,7 +138,7 @@ const Login = () => {
             We look forward to providing you a great &amp; funfilled shopping.
           </ParagraphLarge>
         </div>
-      </div>
+      </FadeUpAnimation>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { addProduct } from "../redux/cartSlice";
 import { updateWishlistProducts } from "../api/apiCalls";
 import { Favorite, FavoriteBorderOutlined } from "@mui/icons-material";
 import { publicRequest } from "../api/requests";
+import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 const Wishlist = () => {
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.wishlist.wishlist);
@@ -62,7 +63,7 @@ const Wishlist = () => {
         ) : (
           products.map((product, index) => {
             return (
-              <div
+              <FadeUpAnimation
                 className="flex flex-col justify-between space-y-8  w-full md:w-96  mb-24 bg-pry-100 p-4 "
                 key={index}
               >
@@ -124,7 +125,7 @@ const Wishlist = () => {
                     dispatch(addProduct({ ...product, quantity }));
                   }}
                 />
-              </div>
+              </FadeUpAnimation>
             );
           })
         )}

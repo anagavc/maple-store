@@ -7,6 +7,7 @@ import necklace from "../images/necklace.jpg";
 import bag from "../images/bag.jpg";
 import shoe from "../images/shoe.jpg";
 import { HeadingThree } from "../components/UI/FontStyles/FontStyles";
+import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 const Categories = () => {
   const collectionsOne = [
     {
@@ -59,7 +60,7 @@ const Categories = () => {
       <HeadingThree color="pry-100" title="Categories For You" />
 
       <div className="flex flex-col space-y-0 md:space-y-12">
-        <div className="flex justify-between flex-col md:flex-row md:space-x-12 w-full">
+        <FadeUpAnimation className="flex justify-between flex-col md:flex-row md:space-x-12 w-full">
           {collectionsOne.map((collection, index) => {
             return (
               <div
@@ -88,8 +89,8 @@ const Categories = () => {
               </div>
             );
           })}
-        </div>
-        <div className="hidden md:flex justify-between flex-col md:flex-row md:space-x-12 w-full">
+        </FadeUpAnimation>
+        <FadeUpAnimation className="hidden md:flex justify-between flex-col md:flex-row md:space-x-12 w-full">
           {collectionsTwo.map((collection, index) => {
             return (
               <div
@@ -114,7 +115,7 @@ const Categories = () => {
               </div>
             );
           })}
-        </div>
+        </FadeUpAnimation>
       </div>
     </div>
   );

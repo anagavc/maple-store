@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 
 const Account = (props) => {
   const user = useSelector((state) => state.user.currentUser);
 
   return (
     <div className="w-full bg-pry-50 items-center justify-center  flex h-full pt-32 pb-20 px-4 lg:px-0">
-      <div className="w-full  lg:w-2/5 bg-pry-100 flex  flex-col justify-center items-center lg:space-x-4 p-4 lg:p-4 ">
+      <FadeUpAnimation className="w-full  lg:w-2/5 bg-pry-100 flex  flex-col justify-center items-center lg:space-x-4 p-4 lg:p-4 ">
         <div className="p-4 lg:p-8 border-b border-b-gold space-y-8 flex items-center justify-center flex-col">
           <div className="flex justify-center items-center w-full  divide-x divide-gold">
             <h2 className=" text-gold  font-body text-xl text-center border-b-gold border-b w-full">
@@ -40,7 +41,7 @@ const Account = (props) => {
             </NavLink>
           </div>
         </div>
-      </div>
+      </FadeUpAnimation>
     </div>
   );
 };
