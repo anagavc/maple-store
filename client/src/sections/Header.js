@@ -24,7 +24,7 @@ const Header = () => {
           <span className="block mt-8"> Inspired by you.</span>
         </h1>
         <p className="text-gold text-md text-justify leading-loose hidden md:block">
-          Jewellery that is designed to set you apart from the crowd, <br />
+          Stylish accessories that will set you apart from the crowd, <br />
           durabality and uniqueness is the mantra we live by.
         </p>
         <h1 className="font-heading text-4xl text-center md:hidden md:text-justify md:text-6xl text-gold uppercase">
@@ -33,7 +33,7 @@ const Header = () => {
           <span className="block mt-8"> Inspired by you.</span>
         </h1>
         <p className="text-gold md:text-sm text-center md:hidden block text-xs md:text-justify leading-loose">
-          Jewellery that is designed to set you apart from the crowd, durabality
+          Stylish accessories that will set you apart from the crowd, durabality
           and uniqueness is the mantra we live by.
         </p>
         <HeaderButton buttonStyle="hidden md:flex w-4/5" />

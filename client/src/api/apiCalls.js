@@ -122,7 +122,7 @@ export const deleteProduct = async (id, dispatch) => {
 
 export const getOrders = async (userID, dispatch) => {
   try {
-    const res = await userRequest.get(`orders/${userID}`);
+    const res = await publicRequest.get(`orders/${userID}`);
     dispatch(addOrder(res.data));
   } catch (error) {
     console.log(error);

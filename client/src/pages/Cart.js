@@ -34,9 +34,8 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [loading, setLoading] = useState(false);
   const [remove, setRemove] = useState(false);
-
+  const [copy, setCopy] = useState(false);
   const [stripeToken, setStripeToken] = useState(null);
-
   //handle increment and reduction of quantity
   const handleQuantity = (type, product) => {
     const price = product.price;
@@ -55,6 +54,10 @@ const Cart = () => {
 
   const onToken = (token) => {
     setStripeToken(token);
+  };
+  const handleCopy = () => {
+    navigator.clipboard.writeText("4242 4242 4242 4242");
+    setCopy(true);
   };
   useEffect(() => {
     const makeRequest = async () => {
@@ -79,6 +82,7 @@ const Cart = () => {
   return (
     <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-between  w-full space-y-4">
       <Notifications open={remove} setOpen={setRemove} type="remove" />
+      <Notifications open={copy} setOpen={setCopy} type="copy" />
 
       <p className="text-pry-100  font-body text-base font-medium ">
         Home &gt; Cart
@@ -202,7 +206,7 @@ const Cart = () => {
               </div>
               <StripeCheckout
                 name="Maple Store"
-                image="https://i.ibb.co/7gnqD5j/aylo.png"
+                image="https://i.ibb.co/dMkyqRs/iconpay.png"
                 billingAddress
                 shippingAddress
                 description={`Your total is ${formatAmount(totalAmount)}`}
@@ -212,6 +216,17 @@ const Cart = () => {
               >
                 <PrimaryButton title="Checkout" />
               </StripeCheckout>
+              <ParagraphLarge>
+                Please, use{" "}
+                <span
+                  className="font-bold hover:text-pry-50 cursor-pointer"
+                  onClick={handleCopy}
+                >
+                  4242 4242 4242 4242
+                </span>{" "}
+                as your card number with any three digits as CVC and a future
+                date as expiration date during checkout.
+              </ParagraphLarge>
             </div>
           </div>
         </FadeUpAnimation>

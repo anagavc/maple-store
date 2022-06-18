@@ -5,6 +5,7 @@ import {
   ShoppingBagOutlined,
 } from "@mui/icons-material";
 import NavItem from "./NavItem";
+import logo from "../../images/logo.png";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -57,9 +58,10 @@ const NavBar = () => {
         </div>
         <NavLink
           to="/"
-          className="text-xl  cursor-pointer text-gold font-heading justify-center  flex items-center"
+          className="text-lg space-x-2 cursor-pointer text-gold font-heading justify-center  flex items-center"
         >
-          Maple Store
+          <img src={logo} className="w-8 h-8" alt="logo" />
+          <span>Maplestore</span>
         </NavLink>
         <div className="md:hidden absolute right-4 mr-6 top-3 cursor-pointer ">
           <NavItem
