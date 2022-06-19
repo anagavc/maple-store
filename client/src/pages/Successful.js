@@ -29,13 +29,12 @@ const Successful = () => {
           })),
         });
         data && dispatch(paidProduct());
-        console.log("done");
       } catch (error) {
         console.log(error);
       }
     };
     data && createOrder();
-  }, []);
+  }, [cart.products, cart.total, data, dispatch, navigate, user._id]);
 
   return (
     <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-center items-center  w-full space-y-4">
@@ -54,6 +53,7 @@ const Successful = () => {
         <a
           href={data?.receipt_url}
           target="_blank"
+          rel="noopener noreferrer"
           className="text-gold text-base font-body hover:text-pry-50 px-4 py-2 flex justify-center items-center w-64 transition duration-300 "
         >
           View receipt <ArrowRightAlt />

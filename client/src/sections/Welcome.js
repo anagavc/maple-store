@@ -1,9 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {
-  FadeUpAnimation,
-  FadeDownAnimation,
-} from "../components/UI/Animations/Animations";
+import { FadeUpAnimation } from "../components/UI/Animations/Animations";
+
 import {
   HeadingFour,
   HeadingTwo,
@@ -12,24 +10,24 @@ import welcomeimg2 from "../images/heroimg.jpg";
 import welcomeimg3 from "../images/welcomeImg3.jpg";
 const Welcome = () => {
   return (
-    <div className="bg-pry-50 px-8 md:px-24 py-16 md:py-48 flex flex-col md:flex-row justify-around  h-3/5 w-full  ">
+    <FadeUpAnimation className="bg-pry-50 px-8 md:px-24 py-16 md:py-48 flex flex-col md:flex-row justify-around  h-3/5 w-full  ">
       <div className="flex justify-center items-center  w-full md:w-auto">
-        <FadeUpAnimation className="border border-pry-100 px-2 py-2">
+        <div className="border border-pry-100 px-2 py-2">
           <img
             src={welcomeimg3}
             className="md:w-64 md:h-64 w-64 h-64"
             alt="welcome 1"
           />
-        </FadeUpAnimation>
-        <FadeUpAnimation className="-ml-40 -mb-48 border border-pry-100 px-2 py-2">
+        </div>
+        <div className="-ml-40 -mb-48 border border-pry-100 px-2 py-2">
           <img
             src={welcomeimg2}
             className="md:w-64 md:h-64 w-64 h-64"
             alt="welcome 2"
           />
-        </FadeUpAnimation>
+        </div>
       </div>
-      <FadeUpAnimation className="flex flex-col justify-between z-20 mt-36 md:mt-0 space-y-8 w-full md:w-2/5">
+      <div className="flex flex-col justify-between z-20 mt-36 md:mt-0 space-y-8 w-full md:w-2/5">
         <HeadingFour
           title="Welcome to Maple stores"
           textColor="text-pry-100 text-center md:text-justify"
@@ -52,8 +50,8 @@ const Welcome = () => {
         >
           Explore
         </NavLink>
-      </FadeUpAnimation>
-    </div>
+      </div>
+    </FadeUpAnimation>
   );
 };
 

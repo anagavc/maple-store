@@ -12,13 +12,12 @@ import "swiper/css/bundle";
 import "swiper/css/pagination";
 // import required modules
 import SwiperCore, { Pagination, Autoplay, EffectFade } from "swiper";
-import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 SwiperCore.use([Pagination, Autoplay, EffectFade]);
 
 const Reviews = () => {
   const reviews = [
     {
-      id: 1,
+      id: "review1",
       reviewer: "Jessica Banks",
       image: reviewer1,
       review:
@@ -26,7 +25,7 @@ const Reviews = () => {
       designation: "Realtor",
     },
     {
-      id: 2,
+      id: "review2",
 
       reviewer: "Adams Andy",
       image: reviewer2,
@@ -34,7 +33,7 @@ const Reviews = () => {
       designation: "Digital marketer",
     },
     {
-      id: 3,
+      id: "review3",
 
       reviewer: "James Fred",
       image: reviewer3,
@@ -43,7 +42,7 @@ const Reviews = () => {
       designation: "Entrepreneur",
     },
     {
-      id: 4,
+      id: "review4",
 
       reviewer: "Felicity Fletcher",
       image: reviewer4,
@@ -80,9 +79,9 @@ const Reviews = () => {
         {reviews.map((review, index) => {
           return (
             <SwiperSlide>
-              <FadeUpAnimation
+              <div
                 className="flex flex-col justify-between w-full  items-center bg-pry-100  md:px-12 px-6 pb-16 pt-8 space-y-4 md:space-y-6"
-                key={index}
+                key={review.id}
               >
                 <HeadingThree title="&rdquo;" color="gold" />
                 <p className="font-heading text-gold text-base text-center h-24 md:h-auto">
@@ -101,7 +100,7 @@ const Reviews = () => {
                 <p className="tracking-widest font-body uppercase text-gold text-sm text-center">
                   {review.designation}
                 </p>
-              </FadeUpAnimation>
+              </div>
             </SwiperSlide>
           );
         })}

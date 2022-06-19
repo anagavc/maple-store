@@ -32,7 +32,7 @@ const Login = () => {
     <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-between  w-full space-y-4">
       <p className="text-pry-100  font-body text-lg font-medium ">Login</p>
       {error && (
-        <p className="text-red-100 font-normal text-sm font-body">
+        <p className="text-pry-100 font-normal text-sm font-body">
           You have entered an invalid username or password
         </p>
       )}
@@ -68,7 +68,7 @@ const Login = () => {
                   },
                 })}
               />
-              <p className="text-red-100 font-normal text-sm font-body">
+              <p className="text-pry-100 font-normal text-sm font-body">
                 {errors["username"] && errors["username"]?.message}
               </p>
             </div>
@@ -95,7 +95,7 @@ const Login = () => {
                   },
                 })}
               />
-              <p className="text-red-100 font-normal text-sm font-body">
+              <p className="text-pry-100 font-normal text-sm font-body">
                 {errors["password"] && errors["password"]?.message}
               </p>
             </div>

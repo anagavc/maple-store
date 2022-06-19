@@ -11,6 +11,7 @@ export const FadeUpAnimation = (props) => {
     <div
       className={props.className}
       data-aos="fade-up"
+      data-aos-delay="50"
       data-aos-easing="ease-in-out"
       data-aos-duration="1000"
       data-aos-mirror="true"
@@ -30,6 +31,7 @@ export const FadeRightAnimation = (props) => {
       className={props.className}
       data-aos-offset="0"
       data-aos="fade-right"
+      data-aos-delay="100"
       data-aos-easing="ease-in-out"
       data-aos-duration="1000"
       data-aos-mirror="true"
@@ -48,6 +50,7 @@ export const FadeLeftAnimation = (props) => {
     <div
       className={props.className}
       data-aos="fade-left"
+      data-aos-delay="100"
       data-aos-easing="ease-in-out"
       data-aos-duration="1000"
       data-aos-mirror="true"
@@ -66,6 +69,7 @@ export const SlideLeftAnimation = (props) => {
     <div
       className={props.className}
       data-aos="slide-left"
+      data-aos-delay="100"
       data-aos-easing="ease-in-out"
       data-aos-duration="1000"
       data-aos-mirror="true"
@@ -84,6 +88,7 @@ export const SlideRightAnimation = (props) => {
     <div
       className={props.className}
       data-aos="slide-right"
+      data-aos-delay="100"
       data-aos-easing="ease-in-out"
       data-aos-duration="1000"
       data-aos-mirror="true"
@@ -102,6 +107,7 @@ export const FadeDownAnimation = (props) => {
     <div
       className={props.className}
       data-aos="fade-down"
+      data-aos-delay="100"
       data-aos-easing="ease-in-out"
       data-aos-duration="1000"
       data-aos-mirror="true"

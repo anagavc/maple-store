@@ -37,7 +37,7 @@ const UpdateAccount = () => {
       {onSubmit && error === false ? (
         <p className="hidden"></p>
       ) : (
-        <p className="text-red-100 font-normal text-sm font-body">
+        <p className="text-pry-100 font-normal text-sm font-body">
           {error.message}
         </p>
       )}
@@ -73,7 +73,7 @@ const UpdateAccount = () => {
                   },
                 })}
               />
-              <p className="text-red-100 font-normal text-sm font-body">
+              <p className="text-pry-100 font-normal text-sm font-body">
                 {errors["username"] && errors["username"]?.message}
               </p>
             </div>
@@ -97,9 +97,13 @@ const UpdateAccount = () => {
                     value: 4,
                     message: "Email address must be more than 4 characters",
                   },
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Please enter a valid email address",
+                  },
                 })}
               />
-              <p className="text-red-100 font-normal text-sm font-body">
+              <p className="text-pry-100 font-normal text-sm font-body">
                 {errors["email"] && errors["email"]?.message}
               </p>
             </div>
@@ -123,7 +127,7 @@ const UpdateAccount = () => {
                   },
                 })}
               />
-              <p className="text-red-100 font-normal text-sm font-body">
+              <p className="text-pry-100 font-normal text-sm font-body">
                 {errors["password"] && errors["password"]?.message}
               </p>
             </div>

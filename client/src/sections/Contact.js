@@ -11,7 +11,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import CommentIcon from "@mui/icons-material/Comment";
 import { publicRequest } from "../api/requests";
 import Modal from "../components/UI/Modal/Modal";
-import { FadeUpAnimation } from "../components/UI/Animations/Animations";
+
 const Contact = () => {
   let loading = true;
   let color = "#1e3330";
@@ -66,18 +66,15 @@ const Contact = () => {
         />
       )}
       <HeadingThree title="Contact Us" color="gold" />
-      <FadeUpAnimation className="font-body text-lg text-gold  text-justify tracking-widest">
+      <div className="font-body text-lg text-gold  text-justify tracking-widest">
         Do you want to make an enquiry? We will be delighted to hear it. Drop us
         a line below, we'd love to talk to you.
-      </FadeUpAnimation>
-      <FadeUpAnimation className="flex flex-col-reverse md:flex-row justify-between md:flex-1 ">
+      </div>
+      <div className="flex flex-col-reverse md:flex-row justify-between md:flex-1 ">
         <div className="flex flex-wrap justify-between h-full gap-6 mt-8 md:mt-0">
           {contactDetails.map((detail, index) => {
             return (
-              <FadeUpAnimation
-                className="flex flex-col space-y-4 w-72"
-                key={index}
-              >
+              <div className="flex flex-col space-y-4 w-72" key={index}>
                 <div className="bg-pry-100 w-8 h-8 text-gold flex justify-center items-center px-4 py-4">
                   {detail.icon}
                 </div>
@@ -85,7 +82,7 @@ const Contact = () => {
                   {detail.name}
                 </h5>
                 <p className="font-body text-base text-gold">{detail.info}</p>
-              </FadeUpAnimation>
+              </div>
             );
           })}
         </div>
@@ -196,7 +193,7 @@ const Contact = () => {
             </button>
           )}
         </form>
-      </FadeUpAnimation>
+      </div>
     </div>
   );
 };

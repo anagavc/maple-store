@@ -23,7 +23,6 @@ import {
 import StripeCheckout from "react-stripe-checkout";
 import { userRequest } from "../api/requests";
 import Loader from "../components/Layouts/Loader";
-import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 
 const KEY =
   "pk_test_51L55AVLWy6VIx3BFpE3XvMg8anotWAGRRbYq1EJPUB2sIfLSz5iKNbIwYtHo1ltutBtzhHwZxExD5S8B46NHoE7H00YUizf8Gg";
@@ -109,7 +108,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <FadeUpAnimation className=" w-full  flex flex-col space-y-8">
+        <div className=" w-full  flex flex-col space-y-8">
           <p className="text-pry-100  font-body text-xl font-medium ">
             Your cart items ({cart.quantity})
           </p>
@@ -219,7 +218,7 @@ const Cart = () => {
               <ParagraphLarge>
                 Please, use{" "}
                 <span
-                  className="font-bold hover:text-pry-50 cursor-pointer"
+                  className="font-bold hover:text-pry-50 cursor-pointer animate-pulse"
                   onClick={handleCopy}
                 >
                   4242 4242 4242 4242
@@ -229,7 +228,7 @@ const Cart = () => {
               </ParagraphLarge>
             </div>
           </div>
-        </FadeUpAnimation>
+        </div>
       )}
       <BackButton
         click={() => {

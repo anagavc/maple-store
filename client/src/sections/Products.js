@@ -7,7 +7,6 @@ import { HeadingThree } from "../components/UI/FontStyles/FontStyles";
 import { addProduct } from "../redux/cartSlice";
 import { getProducts, updateWishlistProducts } from "../api/apiCalls";
 import { Favorite, FavoriteBorderOutlined } from "@mui/icons-material";
-import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 const Products = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser);
@@ -15,7 +14,6 @@ const Products = () => {
   const wishlistID = useSelector((state) => state.wishlist.wishlistID);
   const products = useSelector((state) => state.product.products);
   const [productId, setProductId] = useState(null);
-  const [active, setActive] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   useEffect(() => {
     getProducts(dispatch);
@@ -38,11 +36,10 @@ const Products = () => {
     const filteredProduct = products.filter(
       (product) => product.category.toLowerCase() === category
     );
-    setActive(true);
+
     setFilteredProducts(filteredProduct);
-    console.log(filteredProducts);
   };
-  const [quantity, setQuantity] = useState(1);
+  let quantity = 1;
   const [add, setAdd] = useState(false);
   const [remove, setRemove] = useState(false);
   useEffect(() => {
@@ -53,14 +50,14 @@ const Products = () => {
       updateWishlistProducts(wishlistID, newWishlist, dispatch);
     };
     productId && handleAddToWishlist();
-  }, [productId]);
+  }, [productId, currentWishlist, dispatch, wishlistID]);
 
   return (
     <div className="bg-pry-100 px-8 md:px-24 py-32 flex flex-col space-y-8 justify-center items-center w-full ">
       <Notifications open={add} setOpen={setAdd} type="add" />
       <Notifications open={remove} setOpen={setRemove} type="remove" />
       <HeadingThree title="Our Products" color="gold" />
-      <FadeUpAnimation className="flex justify-center w-full md:items-center flex-wrap md:flex-nowrap">
+      <div className="flex justify-center w-full md:items-center flex-wrap md:flex-nowrap">
         {categories.map((category, index) => {
           return (
             <button
@@ -72,12 +69,12 @@ const Products = () => {
             </button>
           );
         })}
-      </FadeUpAnimation>
+      </div>
       <div className="flex  justify-between flex-col md:flex-row w-full md:flex-wrap">
         {filteredProducts.length === 0
           ? products.slice(0, 6).map((product, index) => {
               return (
-                <FadeUpAnimation
+                <div
                   className="flex flex-col justify-between space-y-8  w-full md:w-96  mb-24 border border-gold p-4 "
                   key={product._id}
                 >
@@ -142,11 +139,11 @@ const Products = () => {
                       setAdd(true);
                     }}
                   />
-                </FadeUpAnimation>
+                </div>
               );
             })
           : filteredProducts.slice(0, 6).map((product) => (
-              <FadeUpAnimation
+              <div
                 className="flex flex-col justify-between space-y-8  w-full md:w-96  mb-24 border border-gold p-4 "
                 key={product._id}
               >
@@ -210,7 +207,7 @@ const Products = () => {
                     dispatch(addProduct({ ...product, quantity }));
                   }}
                 />
-              </FadeUpAnimation>
+              </div>
             ))}
       </div>
     </div>

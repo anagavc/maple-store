@@ -6,16 +6,12 @@ import registerImage from "../images/signup.svg";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { SubmitButton } from "../components/UI/Buttons/PrimaryButton";
-import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { registration } from "../api/apiCalls";
 import { useSelector } from "react-redux";
 
 import { NavLink, useNavigate } from "react-router-dom";
-import {
-  FadeUpAnimation,
-  FadeDownAnimation,
-} from "../components/UI/Animations/Animations";
+import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 
 const Registration = () => {
   let loading = true;
@@ -29,9 +25,7 @@ const Registration = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [user, setUser] = useState();
   const onSubmit = (data) => {
-    setUser(data);
     registration(dispatch, navigate, data);
   };
 
@@ -42,7 +36,7 @@ const Registration = () => {
           Registration
         </p>
         {error && (
-          <p className="text-red-100 font-normal text-sm font-body">{error}</p>
+          <p className="text-pry-100 font-normal text-sm font-body">{error}</p>
         )}
 
         <FadeUpAnimation className="flex justify-between items-center h-full w-full border border-pry-100 bg-gold">
@@ -77,7 +71,7 @@ const Registration = () => {
                     },
                   })}
                 />
-                <p className="text-red-100 font-normal text-sm font-body">
+                <p className="text-pry-100 font-normal text-sm font-body">
                   {errors["username"] && errors["username"]?.message}
                 </p>
               </div>
@@ -101,9 +95,13 @@ const Registration = () => {
                       value: 4,
                       message: "Email address must be more than 4 characters",
                     },
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Please enter a valid email address",
+                    },
                   })}
                 />
-                <p className="text-red-100 font-normal text-sm font-body">
+                <p className="text-pry-100 font-normal text-sm font-body">
                   {errors["email"] && errors["email"]?.message}
                 </p>
               </div>
@@ -129,7 +127,7 @@ const Registration = () => {
                     },
                   })}
                 />
-                <p className="text-red-100 font-normal text-sm font-body">
+                <p className="text-pry-100 font-normal text-sm font-body">
                   {errors["password"] && errors["password"]?.message}
                 </p>
               </div>
