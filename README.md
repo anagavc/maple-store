@@ -1,5 +1,5 @@
 # Maple Store Ecommerce Web Application
-`An ecommerce web application for a fashion accessories store using React for the user interface components, Tailwind CSS for styling of the components and the Redux Toolkit for state management.
+An ecommerce web application for a fashion accessories store using React for the user interface components, Tailwind CSS for styling of the components and the Redux Toolkit for state management.
 
 Payments are processed with Stripe and successful payments are saved to the database attached with details of the order made which the admin has the ability to update the order delivery status from the Admin dashboard which also has features such as the ability to add ,delete and update new or existing products. 
 
