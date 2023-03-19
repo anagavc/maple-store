@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Maple Store Ecommerce Web Application
+An ecommerce web application for a fashion accessories store using React for the user interface components, Tailwind CSS for styling of the components and the Redux Toolkit for state management.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Payments are processed with Stripe and successful payments are saved to the database attached with details of the order made which the admin has the ability to update the order delivery status from the Admin dashboard which also has features such as the ability to add ,delete and update new or existing products. 
 
-## Available Scripts
+The images for the products are uploaded to Firebase's storage and the URL address saved to the database, this greatly improves the response time of the web application and relieves the database the burden of handling the image uploads. 
 
-In the project directory, you can run:
+The user has a user panel from were they can track the shipping status of their orders, update their account details and manage the items in their Wishlist and Cart.
 
-### `npm start`
+For the icons, the Material UI library icons were used as they have a low build size, the slides on the reviews section were made with the Swiper Js library and the validation of forms are done with the aid of the react-hook-form library.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The backend is handled using the Node.js runtime environment with Express as the server and MongoDB for the database management. The token for the logged in users is created and signed using JsonWebToken and the passwords are hashed with the Advanced Encryption Standard provided by the CryptoJs library.`
+## Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`The link to the live website:`
 
-### `npm test`
+https://maplestore.netlify.app
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Client:** React, Redux Toolkit, Tailwind CSS, Stripe, Firebase Storage
 
-### `npm run build`
+**Server:** Node, Express, Mongo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Stripe payment processed
+- State management with the Redux Toolkit
+- Tailwind CSS
+- React Frontend
+- Authentication using JWT
+- Admin & User Login System
+- Images upload to the firebase cloud storage
+- Node.js Backend
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Make sure you have Node.js installed and then proceed to execute this command in the terminal
 
-## Learn More
+```bash
+  npm i
+```
+    
+## Environment Variables
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create an account on mongodb.com and create a new cluster, then set the env value of:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+CONNECTION_URL = to the name of yout atlas database
 
-### Code Splitting
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For management of the sessions, set an env variable
 
-### Analyzing the Bundle Size
+```javascript
+AUTH_SECRET = any_secret_key_of_your_choice
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Usage/Examples
 
-### Advanced Configuration
+`An ecommerce solution using stripe for payment processing`
+## Screenshots
+`The Hero Section`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![header](https://user-images.githubusercontent.com/84836053/178365204-7e5da2d4-22a5-46df-bb72-2a7638bf5f9e.png)
 
-### Deployment
+`The About Section`
+![mapleStoreabout](https://user-images.githubusercontent.com/84836053/178365267-93834b9e-8c94-4395-82d3-defea33eb682.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+`The Product Section`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![products](https://user-images.githubusercontent.com/84836053/178365322-e8174165-0ea5-4756-a5a0-b460969c7d05.png)
+
+`The Login Page`
+
+![login](https://user-images.githubusercontent.com/84836053/178365409-0f473c3b-92f4-411d-a563-bddc2a82fa20.png)
+
+`Reviews section`
+
+![reviews](https://user-images.githubusercontent.com/84836053/178365476-714a85ab-2ab4-4bd6-b6f9-28c8fe7425f6.png)
+
+## Contributing
+
+Contributions are highly appreciated!
+
+`Kindly send a pull request and I will review them with immediate effect`
+
