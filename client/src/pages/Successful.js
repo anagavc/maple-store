@@ -38,15 +38,15 @@ const Successful = () => {
 
   return (
     <div className="bg-pry-50 px-8 md:px-24 py-24 flex flex-col justify-center items-center  w-full space-y-4">
-      <div className="bg-pry-100  drop-shadow flex flex-col items-center w-3/5 space-y-8 justify-center  py-16 border-2 border-gold">
+      <div className="bg-pry-100  drop-shadow flex flex-col items-center w-full md:w-3/5 space-y-8 justify-center p-4 py-8 md:py-16 border-2 border-gold">
         <span className="text-gold">
           <AssignmentTurnedIn sx={{ fontSize: 56 }} />
         </span>
-        <h2 className="text-gold text-2xl font-body">
+        <h2 className="text-gold text-2xl text-center font-body">
           Your payment was successful{" "}
         </h2>
 
-        <p className="font-body  text-gold text-md">
+        <p className="font-body  text-gold text-center text-md">
           Your order has been processed successfully. Thank you for shopping
           with us.
         </p>

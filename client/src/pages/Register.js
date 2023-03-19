@@ -3,13 +3,11 @@ import {
   ParagraphLarge,
 } from "../components/UI/FontStyles/FontStyles";
 import registerImage from "../images/signup.svg";
-import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { SubmitButton } from "../components/UI/Buttons/PrimaryButton";
 import ClipLoader from "react-spinners/ClipLoader";
 import { registration } from "../api/apiCalls";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 

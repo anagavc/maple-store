@@ -73,13 +73,13 @@ const NavBar = () => {
         </div>
       </div>
       <div
-        className={`md:hidden  md:items-center flex flex-col md:flex-row h-screen translate-x-0 justify-evenly  items-center px-12 md:py-2  absolute md:static bg-pry-100 md:z-40 z-40 left-0 w-full md:w-auto md:px-0 transition-all duration-500 ease-in ${
+        className={`md:hidden   flex flex-col md:flex-row h-screen translate-x-0 justify-start space-y-12 pt-16 pb-24  items-center px-12   absolute  bg-pry-100  z-40 left-0 w-full  transition-all duration-500 ease-in ${
           open ? `translate-x-0` : `-translate-x-full`
         }`}
       >
         {currentUser && (
           <NavLink
-            className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0 my-7 text-gold  hover:text-pry-50 transition duration-500"
+            className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0  text-gold  hover:text-pry-50 transition duration-500"
             key="accountMobile"
             to="/account"
             onClick={handleClose}
@@ -106,7 +106,7 @@ const NavBar = () => {
               click={handleClose}
             />
             <NavLink
-              className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0 my-7 text-gold  hover:text-pry-50 transition duration-500"
+              className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0  mb-16 text-gold  hover:text-pry-50 transition duration-500"
               key="loginMobile"
               to="/login"
               onClick={handleClose}
@@ -117,7 +117,7 @@ const NavBar = () => {
         ) : (
           <>
             <NavLink
-              className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0 my-7 text-gold  hover:text-pry-50 transition duration-500"
+              className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0  text-gold  hover:text-pry-50 transition duration-500"
               key="wishlistMobile"
               to="/wishlist"
               onClick={handleClose}
@@ -125,7 +125,7 @@ const NavBar = () => {
               Wishlist
             </NavLink>
             <button
-              className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0 my-7 text-gold  hover:text-pry-50 transition duration-500"
+              className="md:mr-0 text-base  flex md:justify-between justify-center border-b border-b-gold mb-16 md:border-0 w-full md:w-auto  md:space-x-12 items-center py-2 font-heading md:my-0  text-gold  hover:text-pry-50 transition duration-500"
               key="logoutMobile"
               onClick={logoutHandler}
             >

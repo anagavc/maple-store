@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-
 import { getOrders } from "../api/apiCalls";
 import { TableHeader, TableItem } from "../components/UI/FontStyles/FontStyles";
 import { formatAmount } from "../utils/formatAmount";

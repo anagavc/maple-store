@@ -9,7 +9,6 @@ import { SubmitButton } from "../components/UI/Buttons/PrimaryButton";
 import { updateUserInfo } from "../api/apiCalls";
 import { useSelector } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
-
 import { useLocation, useNavigate } from "react-router-dom";
 const UpdateAccount = () => {
   let loading = true;

@@ -3,11 +3,11 @@ import {
   ParagraphLarge,
 } from "../components/UI/FontStyles/FontStyles";
 import loginImg from "../images/login.svg";
-import { useDispatch } from "react-redux";
+
 import { useForm } from "react-hook-form";
 import { SubmitButton } from "../components/UI/Buttons/PrimaryButton";
 import { login } from "../api/apiCalls";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,6 @@ import { FadeUpAnimation } from "../components/UI/Animations/Animations";
 const Login = () => {
   let loading = true;
   let color = "#D2CAA2";
-
   const { error, isFetching } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
